@@ -13,7 +13,7 @@ export default {
       default: null,
     },
   },
-  //neu rendern des Diagrams wenn sich die Daten verändern
+  // neu rendern des Diagrams wenn sich die Daten verändern
   watch: {
     chartdata() {
       this.renderChart(this.chartdata, this.options);

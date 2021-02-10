@@ -15,7 +15,7 @@ axios.defaults.baseURL = 'http://localhost:3011/api/v1/';
 
 Vue.mixin({
   methods: {
-    //generiert Ping
+    // generiert Ping
     testPing: function testPing() {
       const myNotification = new Notification('Aufmerksamkeits-Ping', {
         body: 'Hier klicken um Test zu lösen',

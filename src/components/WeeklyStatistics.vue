@@ -15,7 +15,7 @@ export default {
   components: {
     BarChart,
   },
-  //Update der Daten alle zehn Sekunden
+  // Update der Daten alle zehn Sekunden
   mounted() {
     this.getStats();
     setInterval(() => {
@@ -29,7 +29,7 @@ export default {
         const arr = [];
         const now = Date.now();
         res.data.forEach((e) => {
-          //Nur die Daten der letzten sieben Tage pushen
+          // Nur die Daten der letzten sieben Tage pushen
           if (now - e.time < 604800000) {
             arr.push(e);
           }
@@ -51,7 +51,7 @@ export default {
     },
   },
   computed: {
-    //generieren von Beschriftungen von Balken
+    // generieren von Beschriftungen von Balken
     recLabels() {
       let temp = [];
       this.recordings.forEach((e) => {
@@ -63,7 +63,7 @@ export default {
       temp = temp.filter((a, b) => temp.indexOf(a) === b);
       return temp;
     },
-    //berechnen des Tagesdurchschnitts und erstellen der Balken
+    // berechnen des Tagesdurchschnitts und erstellen der Balken
     recData() {
       const temp = [];
       this.recLabels.forEach((day) => {
@@ -82,7 +82,7 @@ export default {
       return temp;
     },
   },
-   //Variablen erstellen und Graph konfigurieren
+  // Variablen erstellen und Graph konfigurieren
   data() {
     return {
       chartdata: null,

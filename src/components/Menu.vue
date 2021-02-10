@@ -69,7 +69,7 @@ export default {
 
 <style scoped>
 div {
-  /*border: 2px solid grey;*/
+  /* border: 2px solid grey; */
 }
 
 .logo {

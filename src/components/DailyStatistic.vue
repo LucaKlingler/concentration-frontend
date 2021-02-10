@@ -15,7 +15,7 @@ export default {
   components: {
     LineChart,
   },
-  //Update der Daten alle zehn Sekunden
+  // Update der Daten alle zehn Sekunden
   mounted() {
     this.getStats();
     setInterval(() => {
@@ -23,7 +23,7 @@ export default {
     }, 10000);
   },
   methods: {
-    //überschreiben der Datensätze und generieren von Punkten zu den entsprechenden Daten  
+    // überschreiben der Datensätze und generieren von Punkten zu den entsprechenden Daten
     getStats() {
       this.axios.get('/dashboard/getStats').then((res) => {
         this.recordings = [];
@@ -53,7 +53,7 @@ export default {
       });
     },
   },
- //Variablen erstellen und Graph konfigurieren
+  // Variablen erstellen und Graph konfigurieren
   data() {
     return {
       chartdata: null,

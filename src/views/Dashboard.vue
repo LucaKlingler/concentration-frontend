@@ -74,7 +74,7 @@ export default {
       history: [],
     };
   },
-  //updaten der Daten alle 10 Sekunden
+  // updaten der Daten alle 10 Sekunden
   mounted() {
     this.getHistory();
     setInterval(() => {
@@ -91,7 +91,7 @@ export default {
       this.$store.state.timerEn = false;
       this.$store.state.timer = 0;
     },
-    //greift die letzten Testergebnisse aus dem Backend ab und zeigt sie an
+    // greift die letzten Testergebnisse aus dem Backend ab und zeigt sie an
     getHistory() {
       this.axios.get('/dashboard/getHistory').then((res) => {
         this.history = [];
@@ -108,7 +108,7 @@ export default {
     },
   },
   computed: {
-    //verbesserung des Timers (statt 65 Sekunden -> 1 Minute 5 Sekunden, 1 Sekunden -> 1 Sekunde)
+    // verbesserung des Timers (statt 65 Sekunden -> 1 Minute 5 Sekunden, 1 Sekunden -> 1 Sekunde)
     timerS() {
       const time = this.$store.state.timer;
       let out;

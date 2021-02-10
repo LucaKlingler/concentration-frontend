@@ -5,9 +5,9 @@
 <script>
 export default {
   mounted() {
-    //startet die Pings
+    // startet die Pings
     this.ping();
-    //startet Timer
+    // startet Timer
     setInterval(() => {
       if (this.$store.state.timerEn) {
         this.$store.state.timer += 1;
@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     ping() {
-      //Aufmerksamkeitsping zwischen 5 und 15 Minuten
+      // Aufmerksamkeitsping zwischen 5 und 15 Minuten
       // const timeout = 10000; // 15 min = 900
       const timeout = (Math.random() * 600000) + 300000; // 15 min = 900000
       setTimeout(() => {

@@ -3,7 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router';
 import Dashboard from '../views/Dashboard.vue';
 
 Vue.use(VueRouter);
-//verlinkt die routes mit den views
+// verlinkt die routes mit den views
 const routes: Array<RouteConfig> = [
   {
     path: '/',
