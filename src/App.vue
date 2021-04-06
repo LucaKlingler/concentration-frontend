@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import fs from 'fs';
+
 export default {
   mounted() {
     // startet die Pings

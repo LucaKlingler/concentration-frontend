@@ -9,7 +9,7 @@ CONCENTRATION_FILE = 'tmp.log'
 FOLDER_NAME = "keylogger"
 REMOVAL_KEYS = ['backspace', 'delete']
 FILEPATH = "{}/keylogger/{}".format(os.getcwd(), CONCENTRATION_FILE)
-#FILEPATH = "/Users/lucaklingler/Documents/GitHub/captcha/keylogger/tmp2.log"
+#FILEPATH = "/Users/lucaklingler/Documents/GitHub/captcha/keylogger/tmp.log"
 
 def getKey():
     return time.perf_counter(), keyboard.read_key()
@@ -35,6 +35,7 @@ def writeConcentration(concentration):
     #file = open(FILEPATH, "a")  # append mode
     file = open(FILEPATH, "w")  # write mode
     file.write("{}\n".format(concentration))
+    #file.write("{}\n".format(FILEPATH))
     file.close()
 
 def measureAverage():
