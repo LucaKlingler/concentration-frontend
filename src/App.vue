@@ -3,16 +3,21 @@
 </template>
 
 <script>
-import fs from 'fs';
+// const { ipcRenderer } = require('electron').remote;
 
 export default {
   mounted() {
     // startet die Pings
     this.ping();
-    // startet Timer
+    // startet Tsimer
     setInterval(() => {
       if (this.$store.state.timerEn) {
         this.$store.state.timer += 1;
+        // console.log(concentrationString);
+        // if (concentrationString === '0') {
+        //  this.testPing();
+        // }
+        // console.log('data:', concentrationString);
       }
     }, 1000);
   },

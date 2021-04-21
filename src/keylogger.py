@@ -3,6 +3,7 @@ import sys
 import time
 import keyboard
 import datetime
+DEFAULT_AVERAGE = 2
 AVERAGE_MESSUREMENT_SECONDS = 5
 AVERAGE_CONCENTRATION_SECONDS = 5
 CONCENTRATION_FILE = 'tmp.log'
@@ -47,6 +48,7 @@ def measureAverage():
     if AVERAGE_MESSUREMENT_SECONDS >= 60:
         apending_key_average = amount_appending_keys / (AVERAGE_MESSUREMENT_SECONDS// 60)
         removing_key_average = amount_removing_keys / (AVERAGE_MESSUREMENT_SECONDS// 60)
+        if(appending_key_average < DEFAULT_AVERAGE): appending_key_average = DEFAULT_AVERAGE
         return apending_key_average, removing_key_average
     else:
         return amount_appending_keys, amount_removing_keys
@@ -74,6 +76,7 @@ def measureConcentration(apending_key_average, removing_key_average):
 if __name__ == '__main__':
     if not os.path.exists(FOLDER_NAME):
         os.makedirs(FOLDER_NAME)
+    writeConcentration(1)
     apending_key_average, removing_key_average = measureAverage()
     print(apending_key_average, removing_key_average)
     while(True):
