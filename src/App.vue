@@ -6,17 +6,28 @@
 // const { ipcRenderer } = require('electron').remote;
 
 export default {
+  data() {
+    return {
+      concentration: null,
+      lastPingTs: null,
+    };
+  },
   mounted() {
     // startet die Pings
     this.ping();
+    window.ipc.on('keylogger', (payload) => {
+      this.concentration = payload.data * 1;
+    });
     // startet Tsimer
     setInterval(() => {
       if (this.$store.state.timerEn) {
         this.$store.state.timer += 1;
-        // console.log(concentrationString);
-        // if (concentrationString === '0') {
-        //  this.testPing();
-        // }
+        if (this.concentration === 0 && (Date.now() - this.lastPingTs) > 1000 * 60 * 3) {
+          this.lastPingTs = Date.now();
+          console.log('ping');
+          this.testPing();
+        }
+        if (this.concentration === 1) this.lastPingTs = Date.now();
         // console.log('data:', concentrationString);
       }
     }, 1000);

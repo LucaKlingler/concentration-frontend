@@ -18,10 +18,10 @@ async function createWindow() {
     width: 1080, //  width: 750,
     height: 720, // height: 910,
     webPreferences: {
-      // Use pluginOptions.nodeIntegration, leave this alone
-      // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
-      nodeIntegration: (process.env
-        .ELECTRON_NODE_INTEGRATION as unknown) as boolean,
+      nodeIntegration: false,
+      contextIsolation: true,
+      enableRemoteModule: false,
+      preload: path.resolve(__static, 'preload.js'),
     },
   });
 
@@ -37,8 +37,8 @@ async function createWindow() {
 
   setInterval(async () => {
     const concentrationString = await fs.readFileSync(path.join(app.getAppPath(), '..', 'keylogger', 'tmp.log'), 'utf-8');
-    console.log('data:', concentrationString);
-    win.webContents.send('keylogger', {'data': concentrationString});
+    // console.log('data:', concentrationString);
+    win.webContents.send('keylogger', {'data': concentrationString, ts: Date.now()});
   }, 1000); 
 }
 
