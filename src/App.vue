@@ -16,18 +16,19 @@ export default {
     // startet die Pings
     this.ping();
     window.ipc.on('keylogger', (payload) => {
-      this.concentration = payload.data * 1;
+      this.$store.state.concentration = payload.data * 1;
     });
     // startet Tsimer
     setInterval(() => {
       if (this.$store.state.timerEn) {
         this.$store.state.timer += 1;
-        if (this.concentration === 0 && (Date.now() - this.lastPingTs) > 1000 * 60 * 3) {
+        if (this.$store.state.concentration === 0
+          && (Date.now() - this.lastPingTs) > 1000 * 60 * 3) {
           this.lastPingTs = Date.now();
           console.log('ping');
           this.testPing();
         }
-        if (this.concentration === 1) this.lastPingTs = Date.now();
+        if (this.$store.state.concentration === 1) this.lastPingTs = Date.now();
         // console.log('data:', concentrationString);
       }
     }, 1000);

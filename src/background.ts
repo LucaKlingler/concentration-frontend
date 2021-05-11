@@ -37,7 +37,7 @@ async function createWindow() {
 
   setInterval(async () => {
     const concentrationString = await fs.readFileSync(path.join(app.getAppPath(), '..', 'keylogger', 'tmp.log'), 'utf-8');
-    // console.log('data:', concentrationString);
+    console.log('data:', concentrationString);
     win.webContents.send('keylogger', {'data': concentrationString, ts: Date.now()});
   }, 1000); 
 }

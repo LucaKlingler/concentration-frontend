@@ -27,7 +27,8 @@ export default {
     const b = Math.round(Math.random() * 10);
 
     // eslint-disable-next-line no-nested-ternary
-    const operator = operatorRand >= 0.75 ? '+' : operatorRand >= 0.5 ? '-' : operatorRand >= 0.25 ? '*' : '/';
+    // const operator = operatorRand >= 0.75 ? '+' : operatorRand >= 0.5 ? '-' : operatorRand >= 0.25 ? '*' : '/';
+    const operator = operatorRand >= 0.66 ? '+' : operatorRand >= 0.33 ? '-' : '*';
     this.instructions = `Bitte löse folgende Rechenaufgabe: ${a} ${operator} ${b}`;
 
     switch (operator) {
@@ -40,9 +41,11 @@ export default {
       case '*':
         this.solution = a * b;
         break;
+      /*
       case '/':
         this.solution = a / b;
         break;
+      */
       default:
         break;
     }

@@ -52,10 +52,10 @@
     </b-row>
     <b-row>
       <b-col class="linkCol">
-        <router-link class="link" to="/logout">
+        <span class="link" to="#" @click="logout" >
           <b-icon icon="box-arrow-left" />
           Ausloggen
-        </router-link>
+        </span>
       </b-col>
     </b-row>
   </div>
@@ -64,6 +64,12 @@
 <script>
 export default {
   name: 'Menu',
+  methods: {
+    logout() {
+      localStorage.clear();
+      this.$router.push('/login');
+    },
+  },
 };
 </script>
 

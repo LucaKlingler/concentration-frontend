@@ -32,6 +32,7 @@ def calcPercentage(main, sub):
     return main  / 100 * sub
 
 def writeConcentration(concentration):
+    print(concentration)
     # Append-adds at last
     #file = open(FILEPATH, "a")  # append mode
     file = open(FILEPATH, "w")  # write mode

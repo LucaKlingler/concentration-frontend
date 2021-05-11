@@ -19,6 +19,8 @@
                     @click="stopTest">Messung stoppen</b-button>
                   <br><br>
                   <p>Messung läuft seit: {{timerS}}</p>
+                  <p>Du bist derzeit {{this.$store.state.concentration === 0 ?
+                    'nicht konzentriert' : 'konzentriert'}}.</p>
                 </div>
               </b-col>
               <b-col cols="6" class="dbboxwrapper">
