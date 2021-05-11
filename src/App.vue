@@ -17,6 +17,7 @@ export default {
     this.ping();
     window.ipc.on('keylogger', (payload) => {
       this.$store.state.concentration = payload.data * 1;
+      console.log(payload);
     });
     // startet Tsimer
     setInterval(() => {
@@ -28,7 +29,7 @@ export default {
           console.log('ping');
           this.testPing();
         }
-        if (this.$store.state.concentration === 1) this.lastPingTs = Date.now();
+        if (this.$store.state.concentration === 1) this.lastPingTs = 0;
         // console.log('data:', concentrationString);
       }
     }, 1000);
