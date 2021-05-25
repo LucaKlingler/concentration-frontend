@@ -5,8 +5,12 @@ import { exec } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 
-let controller;
 const isDevelopment = process.env.NODE_ENV !== 'production';
+
+// const controller = exec(`python3 ${__dirname}/assets/keylogger.py`, (error) => {
+const controller = exec(`${path.join(app.getAppPath(), '..', 'src', 'runMessurement.sh')}`);
+if (controller.stdout !== null) controller.stdout.on('data', (msg) => console.log(msg));
+controller.on('close', () => console.log('python ended'));
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -36,36 +40,11 @@ async function createWindow() {
     win.loadURL('app://./index.html');
   }
 
-  /*setInterval(async () => {
-    // TODO: implement new keylogger
+  setInterval(async () => {
     const concentrationString = await fs.readFileSync(path.join(app.getAppPath(), '..', 'keylogger', 'tmp.log'), 'utf-8');
-    console.log('old data:', concentrationString);
+    console.log('data:', concentrationString);
     win.webContents.send('keylogger', {'data': concentrationString, ts: Date.now()});
-  }, 1000);*/
-
-  setTimeout(() => {
-    // const controller = exec(`python3 ${__dirname}/assets/keylogger.py`, (error) => {
-    controller = exec(`${path.join(app.getAppPath(), '..', 'src', 'runMessurement.sh')}`, (error) => {
-      console.log('python script startet');
-      win.webContents.send('keylogger', {'data': 'started keylogger', ts: Date.now()});
-      if (error) {
-        // eslint-disable-next-line no-console
-        console.error(`error: ${error}`);
-        win.webContents.send('keylogger', {'data': 'error keylogger', ts: Date.now()});
-      }
-    });
-  
-    if (controller.stdout !== null) controller.stdout.on('data', (msg) => {
-      // eslint-disable-next-line no-console
-      win.webContents.send('keylogger', {'data': msg, ts: Date.now()});
-      console.log(msg);
-    });
-
-    controller.on('close', () => {
-      // eslint-disable-next-line no-console
-      console.log('python ended');
-    });
-  }, 3000);
+  }, 1000);
 }
 
 // Quit when all windows are closed.
@@ -76,6 +55,10 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
+});
+
+app.on('before-quit', () => {
+  controller.kill();
 });
 
 app.on('activate', () => {

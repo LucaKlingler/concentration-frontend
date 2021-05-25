@@ -1,19 +1,5 @@
-2021-05-25 14:03:48,671 : initialised ConcentrationEvaluator
-2021-05-25 14:03:48,672 : started ConcentrationEvaluator
-2021-05-25 14:03:48,672 : evaluating first average for 30 seconds
-2021-05-25 14:03:58,708 : received data: []
-2021-05-25 14:04:08,714 : received data: []
-2021-05-25 14:04:18,719 : received data: []
-2021-05-25 14:04:18,719 : evaluated first - average = 0.0, variance = 0
-2021-05-25 14:04:28,724 : received data: []
-2021-05-25 14:04:28,725 : evaluated std - average = 1, variance = 0, afk_counter = 0
-2021-05-25 14:04:28,725 : user concentration = 1
-2021-05-25 14:04:11,149 : received data: []
-2021-05-25 14:04:11,150 : evaluated std - average = 1, variance = 0, afk_counter = 1
-2021-05-25 14:04:11,150 : user concentration = 1
-2021-05-25 14:04:21,154 : received data: []
-2021-05-25 14:04:21,155 : evaluated std - average = 1, variance = 0, afk_counter = 2
-2021-05-25 14:04:21,155 : user concentration = 1
-2021-05-25 14:04:31,158 : received data: []
-2021-05-25 14:04:31,159 : evaluated std - average = 1, variance = 0, afk_counter = 3
-2021-05-25 14:04:31,159 : user concentration = 1
+2021-05-25 14:23:10,993 : initialised ConcentrationEvaluator
+2021-05-25 14:23:10,993 : started ConcentrationEvaluator
+2021-05-25 14:23:10,994 : evaluating first average for 30 seconds
+2021-05-25 14:23:26,849 : received data: ['Key.cmd', "'q'"]
+2021-05-25 14:23:36,857 : received data: []
