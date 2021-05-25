@@ -1,0 +1,5 @@
+2021-05-25 13:06:18,473 : initialised UserInputLogger
+2021-05-25 13:06:18,474 : started UserInputLogger
+2021-05-25 13:06:28,479 : send keys to ConcentrationEvaluator: ["'i'", "'c'", "'h'", 'Key.space', "'w'", "'i'", "'l'", "'l'", 'Key.space', "'n'", "'i'", "'c'", "'h'", 'Key.space', 'Key.backspace', "'t'", 'Key.space', "'m'", "'e'", "'h'", "'r'", 'Key.space', "'i'", "'c'", "'h'", 'Key.space', "'k'", "'a'", "'n'", "'n'", 'Key.space', "'n'", "'i'", "'c'", "'h'", "'t'", 'Key.space', "'m'", "'e'", "'h'", "'r'", 'Key.space', "'i'", "'c'", "'h'", 'Key.space', "'h'", "'a'", "'b'", 'Key.space', "'d'", "'i'", "'e'", 'Key.space', "'s'", "'c'"]
+2021-05-25 13:06:40,923 : send keys to ConcentrationEvaluator: ["'h'", "'n'", "'a'", "'u'", "'z'", "'e'", 'Key.space', "'v'", "'o'", "'l'", "'l'"]
+2021-05-25 13:06:53,423 : send keys to ConcentrationEvaluator: ['Key.space', "'j'", "'j'", "'a'", "'j'", "'j'", "'s'", "'j'", "'j'", "'s'", "'j'", "'s'", "'j'", "'s'", "'j'", "'d'", "'j'", "'j'", "'d'", "'j'", "'j'", "'d'", "'j'", "'e'", "'j'", "'e'", "'u'", "'u'", "'r'", "'u'", "'r'", "'u'", 'Key.ctrl', "'\\x03'", 'Key.ctrl']

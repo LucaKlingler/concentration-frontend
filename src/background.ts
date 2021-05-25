@@ -88,7 +88,7 @@ if (isDevelopment) {
 }
 
 // const controller = exec(`python3 ${__dirname}/assets/keylogger.py`, (error) => {
-const controller = exec(`sudo python3 ${path.join(app.getAppPath(), '..', 'src', 'keylogger.py')}`, (error) => {
+const controller = exec(`${path.join(app.getAppPath(), '..', 'src', 'runMessurement.sh')}`, (error) => {
   console.log('python script startet');
   if (error) {
     // eslint-disable-next-line no-console

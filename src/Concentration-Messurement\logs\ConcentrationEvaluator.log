@@ -1,0 +1,7 @@
+2021-05-25 13:06:18,474 : initialised ConcentrationEvaluator
+2021-05-25 13:06:18,474 : started ConcentrationEvaluator
+2021-05-25 13:06:18,475 : evaluating first average for 30 seconds
+2021-05-25 13:06:28,479 : received data: ["'i'", "'c'", "'h'", 'Key.space', "'w'", "'i'", "'l'", "'l'", 'Key.space', "'n'", "'i'", "'c'", "'h'", 'Key.space', 'Key.backspace', "'t'", 'Key.space', "'m'", "'e'", "'h'", "'r'", 'Key.space', "'i'", "'c'", "'h'", 'Key.space', "'k'", "'a'", "'n'", "'n'", 'Key.space', "'n'", "'i'", "'c'", "'h'", "'t'", 'Key.space', "'m'", "'e'", "'h'", "'r'", 'Key.space', "'i'", "'c'", "'h'", 'Key.space', "'h'", "'a'", "'b'", 'Key.space', "'d'", "'i'", "'e'", 'Key.space', "'s'", "'c'"]
+2021-05-25 13:06:40,923 : received data: ["'h'", "'n'", "'a'", "'u'", "'z'", "'e'", 'Key.space', "'v'", "'o'", "'l'", "'l'"]
+2021-05-25 13:06:53,423 : received data: ['Key.space', "'j'", "'j'", "'a'", "'j'", "'j'", "'s'", "'j'", "'j'", "'s'", "'j'", "'s'", "'j'", "'s'", "'j'", "'d'", "'j'", "'j'", "'d'", "'j'", "'j'", "'d'", "'j'", "'e'", "'j'", "'e'", "'u'", "'u'", "'r'", "'u'", "'r'", "'u'", 'Key.ctrl', "'\\x03'", 'Key.ctrl']
+2021-05-25 13:06:53,423 : evaluated first - average = 102.0, variance = 0
