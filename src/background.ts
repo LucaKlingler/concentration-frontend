@@ -5,6 +5,7 @@ import { exec } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 
+let controller;
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 // Scheme must be registered before the app is ready
@@ -35,18 +36,43 @@ async function createWindow() {
     win.loadURL('app://./index.html');
   }
 
-  setInterval(async () => {
+  /*setInterval(async () => {
     // TODO: implement new keylogger
     const concentrationString = await fs.readFileSync(path.join(app.getAppPath(), '..', 'keylogger', 'tmp.log'), 'utf-8');
     console.log('old data:', concentrationString);
     win.webContents.send('keylogger', {'data': concentrationString, ts: Date.now()});
-  }, 1000); 
+  }, 1000);*/
+
+  setTimeout(() => {
+    // const controller = exec(`python3 ${__dirname}/assets/keylogger.py`, (error) => {
+    controller = exec(`${path.join(app.getAppPath(), '..', 'src', 'runMessurement.sh')}`, (error) => {
+      console.log('python script startet');
+      win.webContents.send('keylogger', {'data': 'started keylogger', ts: Date.now()});
+      if (error) {
+        // eslint-disable-next-line no-console
+        console.error(`error: ${error}`);
+        win.webContents.send('keylogger', {'data': 'error keylogger', ts: Date.now()});
+      }
+    });
+  
+    if (controller.stdout !== null) controller.stdout.on('data', (msg) => {
+      // eslint-disable-next-line no-console
+      win.webContents.send('keylogger', {'data': msg, ts: Date.now()});
+      console.log(msg);
+    });
+
+    controller.on('close', () => {
+      // eslint-disable-next-line no-console
+      console.log('python ended');
+    });
+  }, 3000);
 }
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
+  controller.kill();
   if (process.platform !== 'darwin') {
     app.quit();
   }
@@ -87,22 +113,3 @@ if (isDevelopment) {
     });
   }
 }
-
-// const controller = exec(`python3 ${__dirname}/assets/keylogger.py`, (error) => {
-const controller = exec(`${path.join(app.getAppPath(), '..', 'src', 'runMessurement.sh')}`, (error) => {
-  console.log('python script startet');
-  if (error) {
-    // eslint-disable-next-line no-console
-    console.error(`error: ${error}`);
-  }
-});
-
-if (controller.stdout !== null) controller.stdout.on('data', (msg) => {
-  // eslint-disable-next-line no-console
-  console.log(msg);
-});
-
-controller.on('close', () => {
-  // eslint-disable-next-line no-console
-  console.log('python ended');
-});
