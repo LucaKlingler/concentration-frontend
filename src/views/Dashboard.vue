@@ -2,11 +2,7 @@
   <div class="dbwrapper text">
     <b-container fluid>
       <b-row>
-        <b-col cols="2">
-          <!-- Menu -->
-          <Menu/>
-        </b-col>
-        <b-col cols="9">
+        <b-col>
           <div class="dbcontent">
             <!-- Einbinden eines "testpings" zur vereinfachten Entwicklung und Demonstration -->
             <h2 @click="testPing">Dashboard</h2>
@@ -61,13 +57,11 @@
 // import Notification from 'node-mac-notifier';
 import VueCal from 'vue-cal';
 import 'vue-cal/dist/vuecal.css';
-import Menu from '../components/Menu.vue';
 import DailyStatistic from '../components/DailyStatistic.vue';
 
 export default {
   name: 'Dashboard',
   components: {
-    Menu,
     DailyStatistic,
     VueCal,
   },

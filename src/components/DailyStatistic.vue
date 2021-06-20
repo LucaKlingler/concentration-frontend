@@ -45,12 +45,12 @@ export default {
             {
               label: 'Data One',
               fill: false,
-              borderColor: '#B0AFF2',
+              borderColor: '#4BE9FF',
               data: this.recData,
             },
           ],
         };
-      });
+      }).catch((err) => console.log(err));
     },
   },
   // Variablen erstellen und Graph konfigurieren
@@ -61,6 +61,7 @@ export default {
       recLabels: [],
       recData: [],
       loaded: false,
+      locale: 'de-DE',
       options: {
         responsive: true,
         maintainAspectRatio: false,
@@ -71,6 +72,9 @@ export default {
         elements: {
           line: {
             tension: 0,
+          },
+          point: {
+            radius: 0,
           },
         },
         legend: {

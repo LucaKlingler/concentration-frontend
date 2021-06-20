@@ -1,11 +1,23 @@
 <template>
-  <router-view/>
+   <div id="app">
+        <router-view name="header"></router-view>
+        <main>
+            <fade-transition origin="center" mode="out-in" :duration="250">
+                <router-view style="min-height: 90vh;"/>
+            </fade-transition>
+        </main>
+        <router-view name="footer"></router-view>
+    </div>
 </template>
 
 <script>
 // const { ipcRenderer } = require('electron').remote;
+import { FadeTransition } from 'vue2-transitions';
 
 export default {
+  components: {
+    FadeTransition,
+  },
   data() {
     return {
       concentration: null,
@@ -52,5 +64,14 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
+
+:root {
+  --background-color: #2F2F2F;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
 </style>

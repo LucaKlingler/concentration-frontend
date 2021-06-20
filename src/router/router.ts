@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import Dashboard from '../views/Dashboard.vue';
+import NavBar from '../components/NavBar.vue';
 
 Vue.use(VueRouter);
 // verlinkt die routes mit den views
@@ -11,7 +12,10 @@ const routes: Array<RouteConfig> = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: Dashboard,
+    components: {
+      header: NavBar,
+      default: Dashboard,
+    },
     meta: {
       requiresAuth: true,
     },
@@ -19,7 +23,10 @@ const routes: Array<RouteConfig> = [
   {
     path: '/statistics',
     name: 'Statistics',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Statistics.vue'),
+    components: {
+      header: NavBar,
+      default: () => import(/* webpackChunkName: "about" */ '../views/Statistics.vue'),
+    },
     meta: {
       requiresAuth: true,
     },
@@ -27,7 +34,10 @@ const routes: Array<RouteConfig> = [
   {
     path: '/calendar',
     name: 'calendar',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Calendar.vue'),
+    components: {
+      header: NavBar,
+      default: () => import(/* webpackChunkName: "about" */ '../views/Calendar.vue'),
+    },
     meta: {
       requiresAuth: true,
     },
@@ -47,7 +57,10 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/:pathMatch(.*)*',
-    component: () => import('../views/404.vue'),
+    components: {
+      header: NavBar,
+      default: () => import('../views/404.vue'),
+    },
   },
 ];
 

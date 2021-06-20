@@ -23,7 +23,7 @@ async function createWindow() {
   const win = new BrowserWindow({
     width: 1080, //  width: 750,
     height: 720, // height: 910,
-    titleBarStyle : 'hiddenInset',
+    frame: false,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,

@@ -1,16 +1,13 @@
 <template>
-  <div class="dbwrapper text">
-    <b-container fluid>
+    <b-container class="dbwrapper text" fluid>
       <b-row>
-        <b-col cols="2">
-          <Menu/>
-        </b-col>
-        <b-col cols="9">
+        <b-col cols="12">
           <div class="dbcontent">
             <h3>Statistiken</h3>
             <b-row>
               <b-col class="dbboxwrapper">
                 <div class="dbbox">
+                  <p>Tagesansicht</p>
                   <DailyStatistic class="chart"/>
                 </div>
               </b-col>
@@ -18,27 +15,24 @@
             <b-row>
               <b-col class="dbboxwrapper">
                 <div class="dbbox">
+                  <p>Wochenansicht</p>
                   <WeeklyStatistic class="chart"/>
                 </div>
               </b-col>
             </b-row>
           </div>
         </b-col>
-        <b-col cols="1" />
       </b-row>
     </b-container>
-  </div>
 </template>
 
 <script>
-import Menu from '../components/Menu.vue';
 import DailyStatistic from '../components/DailyStatistic.vue';
 import WeeklyStatistic from '../components/WeeklyStatistics.vue';
 
 export default {
   name: 'Statistics',
   components: {
-    Menu,
     DailyStatistic,
     WeeklyStatistic,
   },
@@ -52,7 +46,6 @@ export default {
   .dbwrapper {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(180deg, #1C2A4D 0%, #000000 100%);
     position: fixed;
   }
 
@@ -70,7 +63,6 @@ export default {
   }
   .dbbox {
     padding: 1rem;
-    background: #303A53;
     width: 100%;
     border-radius: 10px;
   }

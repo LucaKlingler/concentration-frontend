@@ -2,29 +2,22 @@
   <div class="dbwrapper text">
     <b-container fluid>
       <b-row>
-        <b-col cols="2">
-          <!-- Menu -->
-          <Menu/>
-        </b-col>
-        <b-col cols="9">
+        <b-col>
           <div class="dbcontent">
             <!-- Einbinden eines "testpings" zur vereinfachten Entwicklung und Demonstration -->
             <h2>404 Page not found</h2>
           </div>
         </b-col>
-        <b-col cols="1" />
       </b-row>
     </b-container>
   </div>
 </template>
 
 <script>
-import Menu from '../components/Menu.vue';
 
 export default {
   name: '404',
   components: {
-    Menu,
   },
   data() {
     return {

@@ -61,6 +61,7 @@ export default {
       // eslint-disable-next-line no-shadow
       temp = temp.map((temp) => temp);
       temp = temp.filter((a, b) => temp.indexOf(a) === b);
+      temp = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];
       return temp;
     },
     // berechnen des Tagesdurchschnitts und erstellen der Balken
