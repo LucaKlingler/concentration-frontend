@@ -1,332 +1,257 @@
-2021-06-20 15:59:04,757 : initialised ConcentrationEvaluator
-2021-06-20 15:59:04,758 : started ConcentrationEvaluator
-2021-06-20 15:59:04,758 : evaluating first average for 30 seconds
-2021-06-20 15:59:14,832 : received data: []
-2021-06-20 15:59:24,839 : received data: []
-2021-06-20 15:59:34,846 : received data: []
-2021-06-20 15:59:34,846 : evaluated first - average = 0.0, variance = 0
-2021-06-20 15:59:44,852 : received data: []
-2021-06-20 15:59:44,853 : evaluated std - average = 1, variance = 0, afk_counter = 0
-2021-06-20 15:59:44,854 : user concentration = 1
-2021-06-20 15:59:54,859 : received data: []
-2021-06-20 15:59:54,860 : evaluated std - average = 1, variance = 0, afk_counter = 1
-2021-06-20 15:59:54,860 : user concentration = 1
-2021-06-20 16:00:04,866 : received data: []
-2021-06-20 16:00:04,867 : evaluated std - average = 1, variance = 0, afk_counter = 2
-2021-06-20 16:00:04,867 : user concentration = 1
-2021-06-20 16:00:14,870 : received data: []
-2021-06-20 16:00:14,870 : evaluated std - average = 1, variance = 0, afk_counter = 3
-2021-06-20 16:00:14,871 : user concentration = 1
-2021-06-20 16:00:24,875 : received data: []
-2021-06-20 16:00:24,875 : evaluated std - average = 1, variance = 0, afk_counter = 4
-2021-06-20 16:00:24,875 : user concentration = 1
-2021-06-20 16:00:34,877 : received data: []
-2021-06-20 16:00:34,877 : evaluated std - average = 1, variance = 0, afk_counter = 5
-2021-06-20 16:00:34,878 : user concentration = 1
-2021-06-20 16:00:44,883 : received data: []
-2021-06-20 16:00:44,884 : evaluated std - average = 1, variance = 0, afk_counter = 6
-2021-06-20 16:00:44,884 : user concentration = 1
-2021-06-20 16:00:54,889 : received data: []
-2021-06-20 16:00:54,889 : evaluated std - average = 1, variance = 0, afk_counter = 7
-2021-06-20 16:00:54,889 : user concentration = 1
-2021-06-20 16:01:04,891 : received data: []
-2021-06-20 16:01:04,892 : evaluated std - average = 1, variance = 0, afk_counter = 8
-2021-06-20 16:01:04,892 : user concentration = 1
-2021-06-20 16:01:14,897 : received data: []
-2021-06-20 16:01:14,898 : evaluated std - average = 1, variance = 0, afk_counter = 9
-2021-06-20 16:01:14,898 : user concentration = 0
-2021-06-20 16:01:24,904 : received data: []
-2021-06-20 16:01:24,905 : evaluated std - average = 0, variance = 0, afk_counter = 10
-2021-06-20 16:01:24,906 : user concentration = 0
-2021-06-20 16:01:34,910 : received data: []
-2021-06-20 16:01:34,910 : evaluated std - average = 0, variance = 0, afk_counter = 11
-2021-06-20 16:01:34,911 : user concentration = 0
-2021-06-20 16:01:44,915 : received data: []
-2021-06-20 16:01:44,916 : evaluated std - average = 0, variance = 0, afk_counter = 12
-2021-06-20 16:01:44,916 : user concentration = 0
-2021-06-20 16:01:54,922 : received data: []
-2021-06-20 16:01:54,923 : evaluated std - average = 0, variance = 0, afk_counter = 13
-2021-06-20 16:01:54,923 : user concentration = 0
-2021-06-20 16:02:04,928 : received data: []
-2021-06-20 16:02:04,929 : evaluated std - average = 0, variance = 0, afk_counter = 14
-2021-06-20 16:02:04,929 : user concentration = 0
-2021-06-20 16:02:14,963 : received data: []
-2021-06-20 16:02:14,964 : evaluated std - average = 0, variance = 0, afk_counter = 15
-2021-06-20 16:02:14,964 : user concentration = 0
-2021-06-20 16:02:24,986 : received data: []
-2021-06-20 16:02:24,987 : evaluated std - average = 0, variance = 0, afk_counter = 16
-2021-06-20 16:02:24,987 : user concentration = 0
-2021-06-20 16:02:35,010 : received data: []
-2021-06-20 16:02:35,010 : evaluated std - average = 0, variance = 0, afk_counter = 17
-2021-06-20 16:02:35,011 : user concentration = 0
-2021-06-20 16:02:45,025 : received data: []
-2021-06-20 16:02:45,025 : evaluated std - average = 0, variance = 0, afk_counter = 18
-2021-06-20 16:02:45,026 : user concentration = 0
-2021-06-20 16:02:55,032 : received data: []
-2021-06-20 16:02:55,033 : evaluated std - average = 0, variance = 0, afk_counter = 19
-2021-06-20 16:02:55,033 : user concentration = 0
-2021-06-20 16:03:05,067 : received data: []
-2021-06-20 16:03:05,068 : evaluated std - average = 0, variance = 0, afk_counter = 20
-2021-06-20 16:03:05,068 : user concentration = 0
-2021-06-20 16:03:15,077 : received data: []
-2021-06-20 16:03:15,078 : evaluated std - average = 0, variance = 0, afk_counter = 21
-2021-06-20 16:03:15,079 : user concentration = 0
-2021-06-20 16:03:25,087 : received data: []
-2021-06-20 16:03:25,088 : evaluated std - average = 0, variance = 0, afk_counter = 22
-2021-06-20 16:03:25,089 : user concentration = 0
-2021-06-20 16:03:35,097 : received data: []
-2021-06-20 16:03:35,098 : evaluated std - average = 0, variance = 0, afk_counter = 23
-2021-06-20 16:03:35,098 : user concentration = 0
-2021-06-20 16:03:45,107 : received data: []
-2021-06-20 16:03:45,108 : evaluated std - average = 0, variance = 0, afk_counter = 24
-2021-06-20 16:03:45,109 : user concentration = 0
-2021-06-20 16:03:55,124 : received data: []
-2021-06-20 16:03:55,125 : evaluated std - average = 0, variance = 0, afk_counter = 25
-2021-06-20 16:03:55,125 : user concentration = 0
-2021-06-20 16:04:05,134 : received data: []
-2021-06-20 16:04:05,134 : evaluated std - average = 0, variance = 0, afk_counter = 26
-2021-06-20 16:04:05,134 : user concentration = 0
-2021-06-20 16:04:15,143 : received data: []
-2021-06-20 16:04:15,144 : evaluated std - average = 0, variance = 0, afk_counter = 27
-2021-06-20 16:04:15,144 : user concentration = 0
-2021-06-20 16:04:25,153 : received data: []
-2021-06-20 16:04:25,154 : evaluated std - average = 0, variance = 0, afk_counter = 28
-2021-06-20 16:04:25,154 : user concentration = 0
-2021-06-20 16:04:35,163 : received data: []
-2021-06-20 16:04:35,164 : evaluated std - average = 0, variance = 0, afk_counter = 29
-2021-06-20 16:04:35,164 : user concentration = 0
-2021-06-20 16:04:45,173 : received data: []
-2021-06-20 16:04:45,182 : evaluated std - average = 0, variance = 0, afk_counter = 30
-2021-06-20 16:04:45,184 : user concentration = 0
-2021-06-20 16:04:55,194 : received data: []
-2021-06-20 16:04:55,195 : evaluated std - average = 0, variance = 0, afk_counter = 31
-2021-06-20 16:04:55,196 : user concentration = 0
-2021-06-20 16:05:05,206 : received data: []
-2021-06-20 16:05:05,207 : evaluated std - average = 0, variance = 0, afk_counter = 32
-2021-06-20 16:05:05,208 : user concentration = 0
-2021-06-20 16:05:15,214 : received data: []
-2021-06-20 16:05:15,215 : evaluated std - average = 0, variance = 0, afk_counter = 33
-2021-06-20 16:05:15,216 : user concentration = 0
-2021-06-20 16:05:25,396 : received data: []
-2021-06-20 16:05:25,397 : evaluated std - average = 0, variance = 0, afk_counter = 34
-2021-06-20 16:05:25,399 : user concentration = 0
-2021-06-20 16:05:35,409 : received data: []
-2021-06-20 16:05:35,410 : evaluated std - average = 0, variance = 0, afk_counter = 35
-2021-06-20 16:05:35,411 : user concentration = 0
-2021-06-20 16:05:45,425 : received data: []
-2021-06-20 16:05:45,426 : evaluated std - average = 0, variance = 0, afk_counter = 36
-2021-06-20 16:05:45,427 : user concentration = 0
-2021-06-20 16:05:55,468 : received data: []
-2021-06-20 16:05:55,470 : evaluated std - average = 0, variance = 0, afk_counter = 37
-2021-06-20 16:05:55,470 : user concentration = 0
-2021-06-20 16:06:05,480 : received data: []
-2021-06-20 16:06:05,481 : evaluated std - average = 0, variance = 0, afk_counter = 38
-2021-06-20 16:06:05,482 : user concentration = 0
-2021-06-20 16:06:15,495 : received data: []
-2021-06-20 16:06:15,498 : evaluated std - average = 0, variance = 0, afk_counter = 39
-2021-06-20 16:06:15,498 : user concentration = 0
-2021-06-20 16:06:25,517 : received data: []
-2021-06-20 16:06:25,518 : evaluated std - average = 0, variance = 0, afk_counter = 40
-2021-06-20 16:06:25,519 : user concentration = 0
-2021-06-20 16:06:36,644 : received data: ['Key.alt', "'⁄'"]
-2021-06-20 16:06:36,645 : evaluated std - average = 0, variance = 0, afk_counter = 41
-2021-06-20 16:06:36,646 : user concentration = 1
-2021-06-20 16:06:46,668 : received data: []
-2021-06-20 16:06:46,670 : evaluated std - average = 1, variance = 0, afk_counter = 0
-2021-06-20 16:06:46,670 : user concentration = 1
-2021-06-20 16:06:56,719 : received data: []
-2021-06-20 16:06:56,720 : evaluated std - average = 1, variance = 0, afk_counter = 1
-2021-06-20 16:06:56,721 : user concentration = 1
-2021-06-20 16:07:06,773 : received data: []
-2021-06-20 16:07:06,776 : evaluated std - average = 1, variance = 0, afk_counter = 2
-2021-06-20 16:07:06,776 : user concentration = 1
-2021-06-20 16:07:16,804 : received data: []
-2021-06-20 16:07:16,806 : evaluated std - average = 1, variance = 0, afk_counter = 3
-2021-06-20 16:07:16,807 : user concentration = 1
-2021-06-20 16:07:26,831 : received data: []
-2021-06-20 16:07:26,833 : evaluated std - average = 1, variance = 0, afk_counter = 4
-2021-06-20 16:07:26,834 : user concentration = 1
-2021-06-20 16:07:36,866 : received data: []
-2021-06-20 16:07:36,868 : evaluated std - average = 1, variance = 0, afk_counter = 5
-2021-06-20 16:07:36,869 : user concentration = 1
-2021-06-20 16:07:46,897 : received data: []
-2021-06-20 16:07:46,899 : evaluated std - average = 1, variance = 0, afk_counter = 6
-2021-06-20 16:07:46,900 : user concentration = 1
-2021-06-20 16:07:56,939 : received data: []
-2021-06-20 16:07:56,941 : evaluated std - average = 1, variance = 0, afk_counter = 7
-2021-06-20 16:07:56,942 : user concentration = 1
-2021-06-20 16:08:06,960 : received data: []
-2021-06-20 16:08:06,961 : evaluated std - average = 1, variance = 0, afk_counter = 8
-2021-06-20 16:08:06,962 : user concentration = 1
-2021-06-20 16:08:16,976 : received data: []
-2021-06-20 16:08:16,977 : evaluated std - average = 1, variance = 0, afk_counter = 9
-2021-06-20 16:08:16,978 : user concentration = 0
-2021-06-20 16:08:26,995 : received data: []
-2021-06-20 16:08:26,997 : evaluated std - average = 0, variance = 0, afk_counter = 10
-2021-06-20 16:08:26,999 : user concentration = 0
-2021-06-20 16:08:37,028 : received data: []
-2021-06-20 16:08:37,030 : evaluated std - average = 0, variance = 0, afk_counter = 11
-2021-06-20 16:08:37,031 : user concentration = 0
-2021-06-20 16:08:47,047 : received data: []
-2021-06-20 16:08:47,049 : evaluated std - average = 0, variance = 0, afk_counter = 12
-2021-06-20 16:08:47,051 : user concentration = 0
-2021-06-20 16:08:57,082 : received data: []
-2021-06-20 16:08:57,083 : evaluated std - average = 0, variance = 0, afk_counter = 13
-2021-06-20 16:08:57,083 : user concentration = 0
-2021-06-20 16:09:07,104 : received data: []
-2021-06-20 16:09:07,106 : evaluated std - average = 0, variance = 0, afk_counter = 14
-2021-06-20 16:09:07,107 : user concentration = 0
-2021-06-20 16:09:17,150 : received data: []
-2021-06-20 16:09:17,152 : evaluated std - average = 0, variance = 0, afk_counter = 15
-2021-06-20 16:09:17,154 : user concentration = 0
-2021-06-20 16:09:27,187 : received data: []
-2021-06-20 16:09:27,189 : evaluated std - average = 0, variance = 0, afk_counter = 16
-2021-06-20 16:09:27,190 : user concentration = 0
-2021-06-20 16:09:37,207 : received data: []
-2021-06-20 16:09:37,209 : evaluated std - average = 0, variance = 0, afk_counter = 17
-2021-06-20 16:09:37,209 : user concentration = 0
-2021-06-20 16:09:47,223 : received data: []
-2021-06-20 16:09:47,225 : evaluated std - average = 0, variance = 0, afk_counter = 18
-2021-06-20 16:09:47,226 : user concentration = 0
-2021-06-20 16:09:57,245 : received data: []
-2021-06-20 16:09:57,247 : evaluated std - average = 0, variance = 0, afk_counter = 19
-2021-06-20 16:09:57,248 : user concentration = 0
-2021-06-20 16:10:07,289 : received data: []
-2021-06-20 16:10:07,291 : evaluated std - average = 0, variance = 0, afk_counter = 20
-2021-06-20 16:10:07,292 : user concentration = 0
-2021-06-20 16:10:17,307 : received data: []
-2021-06-20 16:10:17,309 : evaluated std - average = 0, variance = 0, afk_counter = 21
-2021-06-20 16:10:17,310 : user concentration = 0
-2021-06-20 16:10:27,325 : received data: []
-2021-06-20 16:10:27,327 : evaluated std - average = 0, variance = 0, afk_counter = 22
-2021-06-20 16:10:27,329 : user concentration = 0
-2021-06-20 16:10:37,345 : received data: []
-2021-06-20 16:10:37,347 : evaluated std - average = 0, variance = 0, afk_counter = 23
-2021-06-20 16:10:37,349 : user concentration = 0
-2021-06-20 16:10:47,396 : received data: []
-2021-06-20 16:10:47,398 : evaluated std - average = 0, variance = 0, afk_counter = 24
-2021-06-20 16:10:47,400 : user concentration = 0
-2021-06-20 16:10:57,460 : received data: []
-2021-06-20 16:10:57,462 : evaluated std - average = 0, variance = 0, afk_counter = 25
-2021-06-20 16:10:57,464 : user concentration = 0
-2021-06-20 16:11:07,496 : received data: []
-2021-06-20 16:11:07,497 : evaluated std - average = 0, variance = 0, afk_counter = 26
-2021-06-20 16:11:07,499 : user concentration = 0
-2021-06-20 16:11:17,516 : received data: []
-2021-06-20 16:11:17,517 : evaluated std - average = 0, variance = 0, afk_counter = 27
-2021-06-20 16:11:17,519 : user concentration = 0
-2021-06-20 16:11:27,533 : received data: []
-2021-06-20 16:11:27,536 : evaluated std - average = 0, variance = 0, afk_counter = 28
-2021-06-20 16:11:27,537 : user concentration = 0
-2021-06-20 16:11:37,583 : received data: []
-2021-06-20 16:11:37,585 : evaluated std - average = 0, variance = 0, afk_counter = 29
-2021-06-20 16:11:37,586 : user concentration = 0
-2021-06-20 16:11:47,662 : received data: []
-2021-06-20 16:11:47,664 : evaluated std - average = 0, variance = 0, afk_counter = 30
-2021-06-20 16:11:47,665 : user concentration = 0
-2021-06-20 16:11:57,742 : received data: []
-2021-06-20 16:11:57,743 : evaluated std - average = 0, variance = 0, afk_counter = 31
-2021-06-20 16:11:57,744 : user concentration = 0
-2021-06-20 16:12:07,812 : received data: []
-2021-06-20 16:12:07,813 : evaluated std - average = 0, variance = 0, afk_counter = 32
-2021-06-20 16:12:07,814 : user concentration = 0
-2021-06-20 16:11:57,733 : received data: []
-2021-06-20 16:11:57,734 : evaluated std - average = 0, variance = 0, afk_counter = 31
-2021-06-20 16:11:57,735 : user concentration = 0
-2021-06-20 16:12:07,806 : received data: []
-2021-06-20 16:12:07,807 : evaluated std - average = 0, variance = 0, afk_counter = 32
-2021-06-20 16:12:07,808 : user concentration = 0
-2021-06-20 16:11:57,766 : received data: []
-2021-06-20 16:11:57,768 : evaluated std - average = 0, variance = 0, afk_counter = 31
-2021-06-20 16:11:57,768 : user concentration = 0
-2021-06-20 16:12:07,850 : received data: []
-2021-06-20 16:12:07,851 : evaluated std - average = 0, variance = 0, afk_counter = 32
-2021-06-20 16:12:07,852 : user concentration = 0
-2021-06-20 16:11:37,523 : received data: []
-2021-06-20 16:11:37,527 : evaluated std - average = 0, variance = 0, afk_counter = 29
-2021-06-20 16:11:37,527 : user concentration = 0
-2021-06-20 16:11:47,606 : received data: []
-2021-06-20 16:11:47,607 : evaluated std - average = 0, variance = 0, afk_counter = 30
-2021-06-20 16:11:47,609 : user concentration = 0
-2021-06-20 16:11:57,681 : received data: []
-2021-06-20 16:11:57,682 : evaluated std - average = 0, variance = 0, afk_counter = 31
-2021-06-20 16:11:57,684 : user concentration = 0
-2021-06-20 16:12:07,750 : received data: []
-2021-06-20 16:12:07,751 : evaluated std - average = 0, variance = 0, afk_counter = 32
-2021-06-20 16:12:07,752 : user concentration = 0
-1
-2021-06-20 16:08:06,969 : received data: []
-2021-06-20 16:08:06,970 : evaluated std - average = 1, variance = 0, afk_counter = 8
-2021-06-20 16:08:06,971 : user concentration = 1
-2021-06-20 16:08:16,985 : received data: []
-2021-06-20 16:08:16,987 : evaluated std - average = 1, variance = 0, afk_counter = 9
-2021-06-20 16:08:16,988 : user concentration = 0
-2021-06-20 16:08:27,005 : received data: []
-2021-06-20 16:08:27,007 : evaluated std - average = 0, variance = 0, afk_counter = 10
-2021-06-20 16:08:27,008 : user concentration = 0
-2021-06-20 16:08:37,051 : received data: []
-2021-06-20 16:08:37,074 : evaluated std - average = 0, variance = 0, afk_counter = 11
-2021-06-20 16:08:37,076 : user concentration = 0
-2021-06-20 16:08:47,097 : received data: []
-2021-06-20 16:08:47,099 : evaluated std - average = 0, variance = 0, afk_counter = 12
-2021-06-20 16:08:47,100 : user concentration = 0
-2021-06-20 16:08:57,121 : received data: []
-2021-06-20 16:08:57,123 : evaluated std - average = 0, variance = 0, afk_counter = 13
-2021-06-20 16:08:57,123 : user concentration = 0
-2021-06-20 16:09:07,137 : received data: []
-2021-06-20 16:09:07,139 : evaluated std - average = 0, variance = 0, afk_counter = 14
-2021-06-20 16:09:07,140 : user concentration = 0
-2021-06-20 16:09:17,181 : received data: []
-2021-06-20 16:09:17,183 : evaluated std - average = 0, variance = 0, afk_counter = 15
-2021-06-20 16:09:17,185 : user concentration = 0
-2021-06-20 16:09:27,224 : received data: []
-2021-06-20 16:09:27,226 : evaluated std - average = 0, variance = 0, afk_counter = 16
-2021-06-20 16:09:27,227 : user concentration = 0
-2021-06-20 16:09:37,240 : received data: []
-2021-06-20 16:09:37,241 : evaluated std - average = 0, variance = 0, afk_counter = 17
-2021-06-20 16:09:37,242 : user concentration = 0
-2021-06-20 16:09:47,253 : received data: []
-2021-06-20 16:09:47,255 : evaluated std - average = 0, variance = 0, afk_counter = 18
-2021-06-20 16:09:47,256 : user concentration = 0
-2021-06-20 16:09:57,270 : received data: []
-2021-06-20 16:09:57,272 : evaluated std - average = 0, variance = 0, afk_counter = 19
-2021-06-20 16:09:57,274 : user concentration = 0
-2021-06-20 16:10:07,318 : received data: []
-2021-06-20 16:10:07,424 : evaluated std - average = 0, variance = 0, afk_counter = 20
-2021-06-20 16:10:07,425 : user concentration = 0
-2021-06-20 16:10:17,448 : received data: []
-2021-06-20 16:10:17,450 : evaluated std - average = 0, variance = 0, afk_counter = 21
-2021-06-20 16:10:17,451 : user concentration = 0
-2021-06-20 16:10:27,475 : received data: []
-2021-06-20 16:10:27,477 : evaluated std - average = 0, variance = 0, afk_counter = 22
-2021-06-20 16:10:27,479 : user concentration = 0
-2021-06-20 16:10:37,501 : received data: []
-2021-06-20 16:10:37,503 : evaluated std - average = 0, variance = 0, afk_counter = 23
-2021-06-20 16:10:37,506 : user concentration = 0
-2021-06-20 16:10:47,532 : received data: []
-2021-06-20 16:10:47,535 : evaluated std - average = 0, variance = 0, afk_counter = 24
-2021-06-20 16:10:47,536 : user concentration = 0
-2021-06-20 16:10:57,587 : received data: []
-2021-06-20 16:10:57,588 : evaluated std - average = 0, variance = 0, afk_counter = 25
-2021-06-20 16:10:57,590 : user concentration = 0
-2021-06-20 16:11:07,617 : received data: []
-2021-06-20 16:11:07,620 : evaluated std - average = 0, variance = 0, afk_counter = 26
-2021-06-20 16:11:07,621 : user concentration = 0
-2021-06-20 16:11:17,652 : received data: []
-2021-06-20 16:11:17,654 : evaluated std - average = 0, variance = 0, afk_counter = 27
-2021-06-20 16:11:17,655 : user concentration = 0
-2021-06-20 16:11:27,674 : received data: []
-2021-06-20 16:11:27,676 : evaluated std - average = 0, variance = 0, afk_counter = 28
-2021-06-20 16:11:27,678 : user concentration = 0
-2021-06-20 16:11:37,716 : received data: []
-2021-06-20 16:11:37,718 : evaluated std - average = 0, variance = 0, afk_counter = 29
-2021-06-20 16:11:37,719 : user concentration = 0
-2021-06-20 16:11:47,859 : received data: []
-2021-06-20 16:11:47,861 : evaluated std - average = 0, variance = 0, afk_counter = 30
-2021-06-20 16:11:47,862 : user concentration = 0
-2021-06-20 16:11:57,976 : received data: []
-2021-06-20 16:11:57,977 : evaluated std - average = 0, variance = 0, afk_counter = 31
-2021-06-20 16:11:57,978 : user concentration = 0
-2021-06-20 16:12:08,050 : received data: []
-2021-06-20 16:12:08,052 : evaluated std - average = 0, variance = 0, afk_counter = 32
-2021-06-20 16:12:08,052 : user concentration = 0
+2021-06-20 22:31:28,235 : initialised ConcentrationEvaluator
+2021-06-20 22:31:28,235 : started ConcentrationEvaluator
+2021-06-20 22:31:28,235 : evaluating first average for 30 seconds
+2021-06-20 22:31:38,271 : received data: []
+2021-06-20 22:31:48,276 : received data: []
+2021-06-20 22:31:58,281 : received data: []
+2021-06-20 22:31:58,282 : evaluated first - average = 0.0, variance = 0
+2021-06-20 22:32:08,286 : received data: []
+2021-06-20 22:32:08,287 : evaluated std - average = 1, variance = 0, afk_counter = 0
+2021-06-20 22:32:08,287 : user concentration = 1
+2021-06-20 22:32:18,291 : received data: []
+2021-06-20 22:32:18,292 : evaluated std - average = 1, variance = 0, afk_counter = 1
+2021-06-20 22:32:18,292 : user concentration = 1
+2021-06-20 22:32:35,679 : received data: ['Key.cmd', 'Key.space', "'s'", "'l'", 'Key.enter']
+2021-06-20 22:32:35,708 : evaluated std - average = 1, variance = 0, afk_counter = 2
+2021-06-20 22:32:35,708 : user concentration = 1
+2021-06-20 22:32:45,715 : received data: []
+2021-06-20 22:32:45,720 : evaluated std - average = 1, variance = 0, afk_counter = 0
+2021-06-20 22:32:45,720 : user concentration = 1
+2021-06-20 22:32:55,720 : received data: []
+2021-06-20 22:32:55,720 : evaluated std - average = 1, variance = 0, afk_counter = 1
+2021-06-20 22:32:55,720 : user concentration = 1
+2021-06-20 22:33:05,727 : received data: []
+2021-06-20 22:33:05,728 : evaluated std - average = 1, variance = 0, afk_counter = 2
+2021-06-20 22:33:05,728 : user concentration = 1
+2021-06-20 22:33:15,737 : received data: []
+2021-06-20 22:33:15,737 : evaluated std - average = 1, variance = 0, afk_counter = 3
+2021-06-20 22:33:15,737 : user concentration = 1
+2021-06-20 22:33:25,744 : received data: []
+2021-06-20 22:33:25,744 : evaluated std - average = 1, variance = 0, afk_counter = 4
+2021-06-20 22:33:25,745 : user concentration = 1
+2021-06-20 22:33:35,755 : received data: []
+2021-06-20 22:33:35,756 : evaluated std - average = 1, variance = 0, afk_counter = 5
+2021-06-20 22:33:35,756 : user concentration = 1
+2021-06-20 22:33:45,764 : received data: []
+2021-06-20 22:33:45,765 : evaluated std - average = 1, variance = 0, afk_counter = 6
+2021-06-20 22:33:45,765 : user concentration = 1
+2021-06-20 22:33:55,773 : received data: []
+2021-06-20 22:33:55,773 : evaluated std - average = 1, variance = 0, afk_counter = 7
+2021-06-20 22:33:55,773 : user concentration = 1
+2021-06-20 22:34:05,781 : received data: []
+2021-06-20 22:34:05,781 : evaluated std - average = 1, variance = 0, afk_counter = 8
+2021-06-20 22:34:05,782 : user concentration = 1
+2021-06-20 22:34:15,788 : received data: []
+2021-06-20 22:34:15,789 : evaluated std - average = 1, variance = 0, afk_counter = 9
+2021-06-20 22:34:15,789 : user concentration = 0
+2021-06-20 22:34:25,799 : received data: []
+2021-06-20 22:34:25,800 : evaluated std - average = 0, variance = 0, afk_counter = 10
+2021-06-20 22:34:25,800 : user concentration = 022021-06-20 22:34:35,807 : received data: []
+2021-06-20 22:34:35,807 : evaluated std - average = 0, variance = 0, afk_counter = 11
+2021-06-20 22:34:35,807 : user concentration = 022021-06-20 22:34:45,814 : received data: []
+2021-06-20 22:34:45,815 : evaluated std - average = 0, variance = 0, afk_counter = 12
+2021-06-20 22:34:45,815 : user concentration = 022021-06-20 22:34:55,823 : received data: []
+2021-06-20 22:34:55,823 : evaluated std - average = 0, variance = 0, afk_counter = 13
+2021-06-20 22:34:55,823 : user concentration = 022021-06-20 22:35:05,836 : received data: []
+2021-06-20 22:35:05,837 : evaluated std - average = 0, variance = 0, afk_counter = 14
+2021-06-20 22:35:05,837 : user concentration = 022021-06-20 22:35:15,844 : received data: []
+2021-06-20 22:35:15,844 : evaluated std - average = 0, variance = 0, afk_counter = 15
+2021-06-20 22:35:15,845 : user concentration = 022021-06-20 22:35:25,858 : received data: []
+2021-06-20 22:35:25,858 : evaluated std - average = 0, variance = 0, afk_counter = 16
+2021-06-20 22:35:25,858 : user concentration = 022021-06-20 22:35:35,870 : received data: []
+2021-06-20 22:35:35,871 : evaluated std - average = 0, variance = 0, afk_counter = 17
+2021-06-20 22:35:35,871 : user concentration = 022021-06-20 22:35:45,879 : received data: []
+2021-06-20 22:35:45,880 : evaluated std - average = 0, variance = 0, afk_counter = 18
+2021-06-20 22:35:45,880 : user concentration = 022021-06-20 22:35:55,887 : received data: []
+2021-06-20 22:35:55,887 : evaluated std - average = 0, variance = 0, afk_counter = 19
+2021-06-20 22:35:55,888 : user concentration = 022021-06-20 22:36:05,895 : received data: []
+2021-06-20 22:36:05,896 : evaluated std - average = 0, variance = 0, afk_counter = 20
+2021-06-20 22:36:05,896 : user concentration = 022021-06-20 22:36:15,903 : received data: []
+2021-06-20 22:36:15,903 : evaluated std - average = 0, variance = 0, afk_counter = 21
+2021-06-20 22:36:15,904 : user concentration = 022021-06-20 22:36:25,910 : received data: []
+2021-06-20 22:36:25,911 : evaluated std - average = 0, variance = 0, afk_counter = 22
+2021-06-20 22:36:25,911 : user concentration = 022021-06-20 22:36:35,917 : received data: []
+2021-06-20 22:36:35,917 : evaluated std - average = 0, variance = 0, afk_counter = 23
+2021-06-20 22:36:35,918 : user concentration = 022021-06-20 22:36:55,390 : received data: ['Key.alt', "'⁄'"]
+2021-06-20 22:36:55,390 : evaluated std - average = 0, variance = 0, afk_counter = 24
+2021-06-20 22:36:55,391 : user concentration = 1
+2021-06-20 22:37:05,398 : received data: []
+2021-06-20 22:37:05,399 : evaluated std - average = 1, variance = 0, afk_counter = 0
+2021-06-20 22:37:05,399 : user concentration = 1
+2021-06-20 22:37:15,407 : received data: []
+2021-06-20 22:37:15,407 : evaluated std - average = 1, variance = 0, afk_counter = 1
+2021-06-20 22:37:15,407 : user concentration = 1
+2021-06-20 22:37:25,414 : received data: []
+2021-06-20 22:37:25,414 : evaluated std - average = 1, variance = 0, afk_counter = 2
+2021-06-20 22:37:25,414 : user concentration = 1
+2021-06-20 22:37:35,422 : received data: []
+2021-06-20 22:37:35,422 : evaluated std - average = 1, variance = 0, afk_counter = 3
+2021-06-20 22:37:35,422 : user concentration = 1
+2021-06-20 22:37:45,428 : received data: []
+2021-06-20 22:37:45,429 : evaluated std - average = 1, variance = 0, afk_counter = 4
+2021-06-20 22:37:45,429 : user concentration = 1
+2021-06-20 22:37:55,436 : received data: []
+2021-06-20 22:37:55,437 : evaluated std - average = 1, variance = 0, afk_counter = 5
+2021-06-20 22:37:55,438 : user concentration = 1
+2021-06-20 22:38:05,445 : received data: []
+2021-06-20 22:38:05,445 : evaluated std - average = 1, variance = 0, afk_counter = 6
+2021-06-20 22:38:05,446 : user concentration = 1
+2021-06-20 22:38:15,454 : received data: []
+2021-06-20 22:38:15,454 : evaluated std - average = 1, variance = 0, afk_counter = 7
+2021-06-20 22:38:15,454 : user concentration = 1
+2021-06-20 22:38:25,464 : received data: []
+2021-06-20 22:38:25,464 : evaluated std - average = 1, variance = 0, afk_counter = 8
+2021-06-20 22:38:25,464 : user concentration = 1
+2021-06-20 22:38:35,473 : received data: []
+2021-06-20 22:38:35,473 : evaluated std - average = 1, variance = 0, afk_counter = 9
+2021-06-20 22:38:35,473 : user concentration = 0
+2021-06-20 22:38:45,480 : received data: []
+2021-06-20 22:38:45,481 : evaluated std - average = 0, variance = 0, afk_counter = 10
+2021-06-20 22:38:45,481 : user concentration = 022021-06-20 22:38:55,486 : received data: []
+2021-06-20 22:38:55,487 : evaluated std - average = 0, variance = 0, afk_counter = 11
+2021-06-20 22:38:55,487 : user concentration = 022021-06-20 22:39:05,507 : received data: []
+2021-06-20 22:39:05,508 : evaluated std - average = 0, variance = 0, afk_counter = 12
+2021-06-20 22:39:05,508 : user concentration = 022021-06-20 22:39:15,517 : received data: []
+2021-06-20 22:39:15,517 : evaluated std - average = 0, variance = 0, afk_counter = 13
+2021-06-20 22:39:15,518 : user concentration = 022021-06-20 22:39:25,524 : received data: []
+2021-06-20 22:39:25,524 : evaluated std - average = 0, variance = 0, afk_counter = 14
+2021-06-20 22:39:25,525 : user concentration = 022021-06-20 22:39:35,532 : received data: []
+2021-06-20 22:39:35,533 : evaluated std - average = 0, variance = 0, afk_counter = 15
+2021-06-20 22:39:35,533 : user concentration = 022021-06-20 22:39:45,539 : received data: []
+2021-06-20 22:39:45,540 : evaluated std - average = 0, variance = 0, afk_counter = 16
+2021-06-20 22:39:45,540 : user concentration = 022021-06-20 22:39:55,548 : received data: []
+2021-06-20 22:39:55,548 : evaluated std - average = 0, variance = 0, afk_counter = 17
+2021-06-20 22:39:55,548 : user concentration = 022021-06-20 22:40:05,555 : received data: []
+2021-06-20 22:40:05,556 : evaluated std - average = 0, variance = 0, afk_counter = 18
+2021-06-20 22:40:05,556 : user concentration = 022021-06-20 22:40:15,562 : received data: []
+2021-06-20 22:40:15,563 : evaluated std - average = 0, variance = 0, afk_counter = 19
+2021-06-20 22:40:15,563 : user concentration = 022021-06-20 22:40:25,570 : received data: []
+2021-06-20 22:40:25,571 : evaluated std - average = 0, variance = 0, afk_counter = 20
+2021-06-20 22:40:25,571 : user concentration = 022021-06-20 22:40:35,578 : received data: []
+2021-06-20 22:40:35,578 : evaluated std - average = 0, variance = 0, afk_counter = 21
+2021-06-20 22:40:35,578 : user concentration = 022021-06-20 22:40:45,587 : received data: []
+2021-06-20 22:40:45,587 : evaluated std - average = 0, variance = 0, afk_counter = 22
+2021-06-20 22:40:45,587 : user concentration = 022021-06-20 22:40:55,596 : received data: []
+2021-06-20 22:40:55,596 : evaluated std - average = 0, variance = 0, afk_counter = 23
+2021-06-20 22:40:55,597 : user concentration = 022021-06-20 22:41:05,604 : received data: []
+2021-06-20 22:41:05,605 : evaluated std - average = 0, variance = 0, afk_counter = 24
+2021-06-20 22:41:05,605 : user concentration = 022021-06-20 22:41:15,613 : received data: []
+2021-06-20 22:41:15,614 : evaluated std - average = 0, variance = 0, afk_counter = 25
+2021-06-20 22:41:15,614 : user concentration = 022021-06-20 22:41:25,622 : received data: []
+2021-06-20 22:41:25,622 : evaluated std - average = 0, variance = 0, afk_counter = 26
+2021-06-20 22:41:25,622 : user concentration = 022021-06-20 22:41:35,631 : received data: []
+2021-06-20 22:41:35,631 : evaluated std - average = 0, variance = 0, afk_counter = 27
+2021-06-20 22:41:35,631 : user concentration = 022021-06-20 22:41:45,638 : received data: []
+2021-06-20 22:41:45,639 : evaluated std - average = 0, variance = 0, afk_counter = 28
+2021-06-20 22:41:45,639 : user concentration = 022021-06-20 22:41:55,646 : received data: []
+2021-06-20 22:41:55,647 : evaluated std - average = 0, variance = 0, afk_counter = 29
+2021-06-20 22:41:55,647 : user concentration = 022021-06-20 22:42:05,655 : received data: []
+2021-06-20 22:42:05,655 : evaluated std - average = 0, variance = 0, afk_counter = 30
+2021-06-20 22:42:05,656 : user concentration = 022021-06-20 22:42:15,664 : received data: []
+2021-06-20 22:42:15,665 : evaluated std - average = 0, variance = 0, afk_counter = 31
+2021-06-20 22:42:15,665 : user concentration = 022021-06-20 22:42:25,674 : received data: []
+2021-06-20 22:42:25,674 : evaluated std - average = 0, variance = 0, afk_counter = 32
+2021-06-20 22:42:25,675 : user concentration = 022021-06-20 22:42:35,680 : received data: []
+2021-06-20 22:42:35,680 : evaluated std - average = 0, variance = 0, afk_counter = 33
+2021-06-20 22:42:35,681 : user concentration = 022021-06-20 22:42:45,687 : received data: []
+2021-06-20 22:42:45,687 : evaluated std - average = 0, variance = 0, afk_counter = 34
+2021-06-20 22:42:45,687 : user concentration = 022021-06-20 22:42:55,696 : received data: []
+2021-06-20 22:42:55,696 : evaluated std - average = 0, variance = 0, afk_counter = 35
+2021-06-20 22:42:55,696 : user concentration = 022021-06-20 22:43:05,705 : received data: []
+2021-06-20 22:43:05,705 : evaluated std - average = 0, variance = 0, afk_counter = 36
+2021-06-20 22:43:05,705 : user concentration = 022021-06-20 22:43:15,713 : received data: []
+2021-06-20 22:43:15,713 : evaluated std - average = 0, variance = 0, afk_counter = 37
+2021-06-20 22:43:15,713 : user concentration = 022021-06-20 22:43:25,722 : received data: []
+2021-06-20 22:43:25,722 : evaluated std - average = 0, variance = 0, afk_counter = 38
+2021-06-20 22:43:25,722 : user concentration = 022021-06-20 22:43:35,730 : received data: []
+2021-06-20 22:43:35,730 : evaluated std - average = 0, variance = 0, afk_counter = 39
+2021-06-20 22:43:35,731 : user concentration = 022021-06-20 22:43:45,739 : received data: []
+2021-06-20 22:43:45,739 : evaluated std - average = 0, variance = 0, afk_counter = 40
+2021-06-20 22:43:45,739 : user concentration = 022021-06-20 22:43:55,747 : received data: []
+2021-06-20 22:43:55,748 : evaluated std - average = 0, variance = 0, afk_counter = 41
+2021-06-20 22:43:55,748 : user concentration = 022021-06-20 22:44:05,756 : received data: []
+2021-06-20 22:44:05,757 : evaluated std - average = 0, variance = 0, afk_counter = 42
+2021-06-20 22:44:05,757 : user concentration = 022021-06-20 22:44:15,765 : received data: []
+2021-06-20 22:44:15,765 : evaluated std - average = 0, variance = 0, afk_counter = 43
+2021-06-20 22:44:15,765 : user concentration = 022021-06-20 22:44:25,773 : received data: []
+2021-06-20 22:44:25,774 : evaluated std - average = 0, variance = 0, afk_counter = 44
+2021-06-20 22:44:25,774 : user concentration = 022021-06-20 22:44:45,043 : received data: ['Key.alt', 'Key.cmd', "'⁄'"]
+2021-06-20 22:44:45,098 : evaluated std - average = 0, variance = 0, afk_counter = 45
+2021-06-20 22:44:45,099 : user concentration = 1
+2021-06-20 22:44:55,124 : received data: []
+2021-06-20 22:44:55,124 : evaluated std - average = 1, variance = 0, afk_counter = 0
+2021-06-20 22:44:55,124 : user concentration = 1
+2021-06-20 22:45:05,136 : received data: []
+2021-06-20 22:45:05,137 : evaluated std - average = 1, variance = 0, afk_counter = 1
+2021-06-20 22:45:05,137 : user concentration = 1
+2021-06-20 22:45:15,184 : received data: []
+2021-06-20 22:45:15,184 : evaluated std - average = 1, variance = 0, afk_counter = 2
+2021-06-20 22:45:15,185 : user concentration = 1
+2021-06-20 22:45:25,217 : received data: []
+2021-06-20 22:45:25,217 : evaluated std - average = 1, variance = 0, afk_counter = 3
+2021-06-20 22:45:25,217 : user concentration = 1
+2021-06-20 22:45:35,229 : received data: []
+2021-06-20 22:45:35,229 : evaluated std - average = 1, variance = 0, afk_counter = 4
+2021-06-20 22:45:35,229 : user concentration = 1
+2021-06-20 22:45:45,249 : received data: []
+2021-06-20 22:45:45,250 : evaluated std - average = 1, variance = 0, afk_counter = 5
+2021-06-20 22:45:45,250 : user concentration = 1
+2021-06-20 22:45:55,260 : received data: []
+2021-06-20 22:45:55,261 : evaluated std - average = 1, variance = 0, afk_counter = 6
+2021-06-20 22:45:55,261 : user concentration = 1
+2021-06-20 22:46:05,272 : received data: []
+2021-06-20 22:46:05,272 : evaluated std - average = 1, variance = 0, afk_counter = 7
+2021-06-20 22:46:05,273 : user concentration = 1
+2021-06-20 22:46:15,382 : received data: []
+2021-06-20 22:46:15,383 : evaluated std - average = 1, variance = 0, afk_counter = 8
+2021-06-20 22:46:15,383 : user concentration = 1
+2021-06-20 22:46:25,398 : received data: []
+2021-06-20 22:46:25,399 : evaluated std - average = 1, variance = 0, afk_counter = 9
+2021-06-20 22:46:25,399 : user concentration = 0
+2021-06-20 22:46:35,443 : received data: []
+2021-06-20 22:46:35,443 : evaluated std - average = 0, variance = 0, afk_counter = 10
+2021-06-20 22:46:35,443 : user concentration = 022021-06-20 22:46:45,508 : received data: []
+2021-06-20 22:46:45,509 : evaluated std - average = 0, variance = 0, afk_counter = 11
+2021-06-20 22:46:45,509 : user concentration = 022021-06-20 22:46:55,547 : received data: []
+2021-06-20 22:46:55,547 : evaluated std - average = 0, variance = 0, afk_counter = 12
+2021-06-20 22:46:55,547 : user concentration = 022021-06-20 22:47:05,610 : received data: []
+2021-06-20 22:47:05,610 : evaluated std - average = 0, variance = 0, afk_counter = 13
+2021-06-20 22:47:05,610 : user concentration = 02021-06-20 22:47:05,638 : received data: []
+2021-06-20 22:47:05,638 : evaluated std - average = 0, variance = 0, afk_counter = 13
+2021-06-20 22:47:05,639 : user concentration = 0
+2021-06-20 22:47:20,210 : received data: ['Key.space']
+2021-06-20 22:47:20,212 : evaluated std - average = 0, variance = 0, afk_counter = 14
+2021-06-20 22:47:20,212 : user concentration = 1
+2021-06-20 22:47:30,250 : received data: []
+2021-06-20 22:47:30,250 : evaluated std - average = 1, variance = 0, afk_counter = 0
+2021-06-20 22:47:30,251 : user concentration = 1
+2021-06-20 22:47:40,283 : received data: []
+2021-06-20 22:47:40,319 : evaluated std - average = 1, variance = 0, afk_counter = 1
+2021-06-20 22:47:40,320 : user concentration = 1
+2021-06-20 22:47:50,333 : received data: []
+2021-06-20 22:47:50,334 : evaluated std - average = 1, variance = 0, afk_counter = 2
+2021-06-20 22:47:50,335 : user concentration = 1
+2021-06-20 22:48:00,341 : received data: []
+2021-06-20 22:48:00,341 : evaluated std - average = 1, variance = 0, afk_counter = 3
+2021-06-20 22:48:00,342 : user concentration = 1
+2021-06-20 22:48:10,358 : received data: []
+2021-06-20 22:48:10,359 : evaluated std - average = 1, variance = 0, afk_counter = 4
+2021-06-20 22:48:10,359 : user concentration = 1
+2021-06-20 22:48:20,367 : received data: []
+2021-06-20 22:48:20,368 : evaluated std - average = 1, variance = 0, afk_counter = 5
+2021-06-20 22:48:20,369 : user concentration = 1
+2021-06-20 22:48:30,391 : received data: []
+2021-06-20 22:48:30,392 : evaluated std - average = 1, variance = 0, afk_counter = 6
+2021-06-20 22:48:30,393 : user concentration = 1
+2021-06-20 22:48:40,399 : received data: []
+2021-06-20 22:48:40,400 : evaluated std - average = 1, variance = 0, afk_counter = 7
+2021-06-20 22:48:40,401 : user concentration = 1
+2021-06-20 22:48:50,406 : received data: []
+2021-06-20 22:48:50,407 : evaluated std - average = 1, variance = 0, afk_counter = 8
+2021-06-20 22:48:50,408 : user concentration = 1
+2021-06-20 22:49:00,438 : received data: []
+2021-06-20 22:49:00,439 : evaluated std - average = 1, variance = 0, afk_counter = 9
+2021-06-20 22:49:00,440 : user concentration = 0
+2021-06-20 22:49:10,458 : received data: []
+2021-06-20 22:49:10,459 : evaluated std - average = 0, variance = 0, afk_counter = 10
+2021-06-20 22:49:10,459 : user concentration = 0

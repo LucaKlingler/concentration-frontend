@@ -127,13 +127,9 @@ export default {
 };
 </script>
 <style scoped>
-  .text {
-    color: white;
-  }
   .dbwrapper {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(180deg, #1C2A4D 0%, #000000 100%);
   }
 
   .dbcontent {

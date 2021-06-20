@@ -41,6 +41,8 @@ Vue.mixin({
   },
 });
 
+Vue.prototype.window = window;
+
 // check if loggedin
 router.beforeEach(function cb(this: any, to, from, next) {
   if (to.matched.some((record) => record.meta.requiresAuth)) {

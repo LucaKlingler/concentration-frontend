@@ -1,14 +1,24 @@
 <template>
-  <div class="home">
-    <Puzzle v-if="challenge === 0" :notificationTs="$route.query.ts"/>
-    <Calculation v-if="challenge === 1" :notificationTs="$route.query.ts"/>
-  </div>
+  <b-container fluid>
+  <b-row class="menu">
+    <b-col cols="1">
+      <WindowControls/>
+    </b-col>
+  </b-row>
+  <b-row>
+    <b-col>
+      <Puzzle v-if="challenge === 0" :notificationTs="$route.query.ts"/>
+      <Calculation v-if="challenge === 1" :notificationTs="$route.query.ts"/>
+    </b-col>
+  </b-row>
+  </b-container>
 </template>
 
 <script>
 // @ is an alias to /src
 import Puzzle from '../components/Puzzle.vue';
 import Calculation from '../components/Calculation.vue';
+import WindowControls from '../components/WindowControls.vue';
 
 export default {
   name: 'Home',
@@ -19,7 +29,8 @@ export default {
   },
   components: {
     Puzzle,
-    Calculation
+    Calculation,
+    WindowControls,
   },
   created() {
     const challengeRand = Math.random() * 1;

@@ -8,10 +8,13 @@ import fs from 'fs';
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 // const controller = exec(`python3 ${__dirname}/assets/keylogger.py`, (error) => {
-const controller = exec(`cd ${path.join(app.getAppPath(), '..', 'src', 'Concentration-Messurement')} && pwd && sudo python3 -m concentration >> log.log`);
-if (controller.stdout !== null) controller.stdout.on('data', (msg) => console.log(msg));
-controller.on('close', () => console.log('python ended'));
-let keyloggerPid;
+const keyloggerEnabled = false;
+if (keyloggerEnabled === true) {
+  const controller = exec(`cd ${path.join(app.getAppPath(), '..', 'src', 'Concentration-Messurement')} && pwd && sudo python3 -m concentration >> log.log`);
+  if (controller.stdout !== null) controller.stdout.on('data', (msg) => console.log(msg));
+  controller.on('close', () => console.log('python ended'));
+}
+let keyloggerPid = null;
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -32,6 +35,7 @@ async function createWindow() {
     },
   });
 
+
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL as string);
@@ -42,9 +46,25 @@ async function createWindow() {
     win.loadURL('app://./index.html');
   }
 
+  ipcMain.on('window', (e, d) => {
+    switch (d) {
+      case 'min':
+        win.minimize();
+        break;
+      case 'max':
+        win.maximize();
+        break;
+      case 'close':
+        win.close();
+        break;
+      default:
+        break;
+    }
+  })
+
   setInterval(async () => {
     const concentrationString = await fs.readFileSync(path.join(app.getAppPath(), '..', 'keylogger', 'tmp.log'), 'utf-8');
-    console.log('data:', concentrationString);
+    // console.log('data:', concentrationString);
     const pid = concentrationString.split(':')[0];
     if (pid) keyloggerPid = pid;
     win.webContents.send('keylogger', {'data': concentrationString, ts: Date.now()});

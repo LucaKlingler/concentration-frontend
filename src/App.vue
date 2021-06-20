@@ -1,5 +1,5 @@
 <template>
-   <div id="app">
+   <div id="class">
         <router-view name="header"></router-view>
         <main>
             <fade-transition origin="center" mode="out-in" :duration="250">
@@ -29,7 +29,7 @@ export default {
     this.ping();
     window.ipc.on('keylogger', (payload) => {
       this.$store.state.concentration = payload.data * 1;
-      console.log(payload);
+      // console.log(payload);
     });
     // startet Tsimer
     setInterval(() => {
@@ -72,6 +72,29 @@ export default {
 
 body {
   background-color: var(--background-color);
+}
+
+.text {
+    color: white;
+  }
+
+/* Menu / NavBar Styles */
+.menu {
+  -webkit-app-region: drag;
+  background: black;
+  width: 100vw;
+}
+
+.menuIcon {
+  width: 1rem;
+  height: 1rem;
+  color: #ffffff;
+}
+
+.menuItem {
+  padding: 0;
+  width: 3.125rem;
+  height: 3.125rem;
 }
 
 </style>

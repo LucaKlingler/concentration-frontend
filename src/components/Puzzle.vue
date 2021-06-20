@@ -1,23 +1,32 @@
 <template>
   <div>
-    <h1>Bitte wähle alle {{challenge}} {{category}} aus. Übrig: {{amount}}</h1>
-    <table>
+    <h1 v-if="false">Bitte wähle alle {{challenge}} {{category}} aus. Übrig: {{amount}}</h1>
+    <p class="text" style="margin-top: 1rem;">
+      Wähle alle Quadrate mit
+      <br>
+      <b>{{category}}</b>
+    </p>
+    <div class="captchaWrapper" ref="captchaWrapper">
+      <table>
         <!-- generieren von "size" Reihen -->
         <tr v-for="i in size" :key="i">
           <!-- generieren von "size" Spalten -->
           <td v-for="u in size" :key="u"
+          :style="{ width: imgSize, height: imgSize }"
           :class="{ right: pictures[(i-1)*size+(u-1)].img.includes(category) &&
           pictures[(i-1)*size+(u-1)].clicked,
           wrong: !pictures[(i-1)*size+(u-1)].img.includes(category) &&
           pictures[(i-1)*size+(u-1)].clicked }">
             <!-- hinzufügen der entsprechenden Bilder -->
-            <img width="100%" height="100%"
+            <img class="captchaImg"
+            height="100%" width="100%"
             :src="require(`@/assets/pictures${pictures[(i-1)*size+(u-1)].img}`)"
             @click="captchaClick(pictures[(i-1)*size+(u-1)])"
             v-show="!pictures[(i-1)*size+(u-1)].clicked">
           </td>
         </tr>
       </table>
+    </div>
   </div>
 </template>
 
@@ -107,15 +116,38 @@ export default {
       this.createCaptcha();
     });
   },
+  computed: {
+    imgSize() {
+      console.log(this.size, this.$refs.captchaWrapper.clientWidth / this.size);
+      return `${this.$refs.captchaWrapper.clientWidth / this.size}px`;
+    },
+  },
 };
 
 </script>
 
 <style scoped>
+/*
 td {
   height: 150px;
   width: 150px;
 }
+*/
+
+.captchaWrapper {
+  width: 100%;
+  background-color: white;
+}
+
+td {
+  padding: 1rem;
+}
+
+.captchaImage {
+  width: 100%;
+  height: 100%;
+}
+
 .right {
   background-color: green;
 }
