@@ -14,7 +14,7 @@ const routes: Array<RouteConfig> = [
     component: Dashboard,
     meta: {
       requiresAuth: true,
-    }
+    },
   },
   {
     path: '/statistics',
@@ -22,7 +22,7 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Statistics.vue'),
     meta: {
       requiresAuth: true,
-    }
+    },
   },
   {
     path: '/calendar',
@@ -30,7 +30,7 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Calendar.vue'),
     meta: {
       requiresAuth: true,
-    }
+    },
   },
   {
     path: '/captcha',
@@ -38,12 +38,16 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Captcha.vue'),
     meta: {
       requiresAuth: true,
-    }
+    },
   },
   {
     path: '/login',
     name: 'Login',
     component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    component: () => import('../views/404.vue'),
   },
 ];
 

@@ -1,4 +1,4 @@
-2021-05-25 14:23:10,992 : initialised UserInputLogger
-2021-05-25 14:23:10,993 : started UserInputLogger
-2021-05-25 14:23:26,849 : send keys to ConcentrationEvaluator: ['Key.cmd', "'q'"]
-2021-05-25 14:23:36,856 : send keys to ConcentrationEvaluator: []
+2021-05-25 14:49:18,570 : initialised UserInputLogger
+2021-05-25 14:49:18,571 : started UserInputLogger
+2021-05-25 14:49:28,613 : send keys to ConcentrationEvaluator: []
+2021-05-25 14:49:38,617 : send keys to ConcentrationEvaluator: []

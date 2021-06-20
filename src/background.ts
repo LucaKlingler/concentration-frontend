@@ -8,9 +8,10 @@ import fs from 'fs';
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 // const controller = exec(`python3 ${__dirname}/assets/keylogger.py`, (error) => {
-const controller = exec(`${path.join(app.getAppPath(), '..', 'src', 'runMessurement.sh')}`);
+const controller = exec(`cd ${path.join(app.getAppPath(), '..', 'src', 'Concentration-Messurement')} && pwd && sudo python3 -m concentration >> log.log`);
 if (controller.stdout !== null) controller.stdout.on('data', (msg) => console.log(msg));
 controller.on('close', () => console.log('python ended'));
+let keyloggerPid;
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -22,6 +23,7 @@ async function createWindow() {
   const win = new BrowserWindow({
     width: 1080, //  width: 750,
     height: 720, // height: 910,
+    titleBarStyle : 'hiddenInset',
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
@@ -43,6 +45,8 @@ async function createWindow() {
   setInterval(async () => {
     const concentrationString = await fs.readFileSync(path.join(app.getAppPath(), '..', 'keylogger', 'tmp.log'), 'utf-8');
     console.log('data:', concentrationString);
+    const pid = concentrationString.split(':')[0];
+    if (pid) keyloggerPid = pid;
     win.webContents.send('keylogger', {'data': concentrationString, ts: Date.now()});
   }, 1000);
 }
@@ -51,14 +55,20 @@ async function createWindow() {
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
-  controller.kill();
+  // controller.kill();
+  process.kill(controller.pid);
+  process.kill(keyloggerPid);
+  console.log(controller.pid);
   if (process.platform !== 'darwin') {
     app.quit();
   }
 });
 
 app.on('before-quit', () => {
-  controller.kill();
+  // controller.kill();
+  console.log(controller.pid);
+  process.kill(controller.pid);
+  process.kill(keyloggerPid);
 });
 
 app.on('activate', () => {

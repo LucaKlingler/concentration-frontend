@@ -74,6 +74,11 @@ export default {
 </script>
 
 <style scoped>
+
+.menu {
+  -webkit-app-region: drag
+}
+
 div {
   /* border: 2px solid grey; */
 }

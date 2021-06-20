@@ -1,5 +1,5 @@
-2021-05-25 14:23:10,993 : initialised ConcentrationEvaluator
-2021-05-25 14:23:10,993 : started ConcentrationEvaluator
-2021-05-25 14:23:10,994 : evaluating first average for 30 seconds
-2021-05-25 14:23:26,849 : received data: ['Key.cmd', "'q'"]
-2021-05-25 14:23:36,857 : received data: []
+2021-05-25 14:49:18,570 : initialised ConcentrationEvaluator
+2021-05-25 14:49:18,571 : started ConcentrationEvaluator
+2021-05-25 14:49:18,572 : evaluating first average for 30 seconds
+2021-05-25 14:49:28,613 : received data: []
+2021-05-25 14:49:38,617 : received data: []
