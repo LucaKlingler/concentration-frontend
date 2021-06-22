@@ -130,11 +130,12 @@ export default {
   .dbwrapper {
     width: 100vw;
     height: 100vh;
+    overflow: scroll;
   }
 
   .dbcontent {
     height: 90vh;
-    margin-top: 5vh;
+    margin-top: 3vh;
     margin-bottom: 5vh;
   }
 

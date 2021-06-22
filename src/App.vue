@@ -68,6 +68,7 @@ export default {
 
 :root {
   --background-color: #2F2F2F;
+  overflow: hidden;
 }
 
 body {
