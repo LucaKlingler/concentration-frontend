@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="puzzle d-flex flex-column">
     <h1 v-if="false">Bitte wähle alle {{challenge}} {{category}} aus. Übrig: {{amount}}</h1>
-    <p class="text" style="margin-top: 1rem;">
+    <p class="text">
       Wähle alle Quadrate mit
       <br>
-      <b>{{category}}</b>
+      <b class="challengeText">{{category}}</b>
     </p>
     <div class="captchaWrapper" ref="captchaWrapper">
       <div class="captchaOverlay" v-if="showWrong">
@@ -39,6 +39,11 @@
         </tr>
       </table>
     </div>
+    <b-button :class="{ confirmButton: true,
+      confirmButtonDisabled: !solved, 'flex-grow-1': true }"
+      @click="solve">
+      bestätigen
+    </b-button>
   </div>
 </template>
 
@@ -55,6 +60,7 @@ export default {
       amount: 0,
       startTime: Date.now(),
       showWrong: false,
+      solved: false,
     };
   },
   props: {
@@ -62,6 +68,7 @@ export default {
   },
   methods: {
     captchaClick(picture) {
+      if (this.solved) return;
       // Bild als geklickt kennzeichnen
       this.pictures[picture.i].clicked = true;
       this.pictures[picture.i].clickedTs = Date.now();
@@ -72,28 +79,32 @@ export default {
         this.failedCaptchas.push(this.pictures);
         this.showWrong = true;
         setTimeout(() => {
-          this.createCaptcha();
+          // this.createCaptcha();
         }, 1000);
       }
       // Wenn alle richtig geklickt, an Backend senden
       if (this.amount === 0) {
-        this.axios.post('/recaptcha/verify', {
-          pictures: this.pictures,
-          failedCaptchas: this.failedCaptchas,
-          fails: this.failedCaptchas.length,
-          category: this.category,
-          amount: this.amount,
-          notificationTime: this.notificationTs,
-          startTime: this.startTime,
-          endTime: Date.now(),
-          size: this.size,
-          challenge: this.challenge,
-        })
-          .then((res) => {
-            alert(res.data);
-            window.close();
-          }).catch(() => console.log());
+        this.solved = true;
       }
+    },
+    solve() {
+      if (!this.solved) return;
+      this.axios.post('/recaptcha/verify', {
+        pictures: this.pictures,
+        failedCaptchas: this.failedCaptchas,
+        fails: this.failedCaptchas.length,
+        category: this.category,
+        amount: this.amount,
+        notificationTime: this.notificationTs,
+        startTime: this.startTime,
+        endTime: Date.now(),
+        size: this.size,
+        challenge: this.challenge,
+      })
+        .then((res) => {
+          alert(res.data);
+          window.close();
+        }).catch(() => console.log());
     },
     // Kreiert Captcha aus zufälligen Bildern
     createCaptcha() {
@@ -144,18 +155,25 @@ export default {
 </script>
 
 <style scoped>
-/*
-td {
-  height: 150px;
-  width: 150px;
+
+.puzzle {
+  height: 100%;
 }
-*/
+
+.text {
+  padding: 1.5rem;
+}
+
+.challengeText {
+  font-size: 16pt;
+}
 
 .captchaWrapper {
   width: 100%;
   background-color: white;
   position: relative;
   display: block;
+  margin: 1rem;
 }
 
 .captchaOverlay {
@@ -201,5 +219,20 @@ td {
 }
 .wrong {
   background-color: red;
+}
+
+.confirmButton {
+  background-color: #716EFF;
+  width: 100%;
+  line-height: 100%;
+  color: white;
+  font-size: 18pt;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.confirmButtonDisabled {
+  opacity: 0.7;
+  cursor: not-allowed !important;
 }
 </style>

@@ -34,7 +34,7 @@ Vue.mixin({
         body: 'Hier klicken um Test zu lösen',
       });
       myNotification.addEventListener('click', () => {
-        const params = 'scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=750,height=910,left=0,top=0';
+        const params = 'scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=600,height=910,left=0,top=0';
         window.open(`/captcha?ts=${Date.now()}`, 'test', params);
       });
     },

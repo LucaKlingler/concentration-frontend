@@ -1,12 +1,12 @@
 <template>
-  <b-container fluid>
+  <b-container fluid class="captcha min-vh-100 d-flex flex-column">
   <b-row class="menu">
     <b-col cols="1">
       <WindowControls/>
     </b-col>
   </b-row>
-  <b-row>
-    <b-col>
+  <b-row class="flex-grow-1">
+    <b-col class="captchaContainer ">
       <Puzzle v-if="challenge === 0" :notificationTs="$route.query.ts"/>
       <Calculation v-if="challenge === 1" :notificationTs="$route.query.ts"/>
     </b-col>
@@ -38,3 +38,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+.captchaContainer {
+ padding: 0;
+}
+
+</style>

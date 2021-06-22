@@ -3,7 +3,7 @@
         <router-view name="header"></router-view>
         <main>
             <fade-transition origin="center" mode="out-in" :duration="250">
-                <router-view style="min-height: 90vh;"/>
+                <router-view style="min-height: 90vh;" class="app" />
             </fade-transition>
         </main>
         <router-view name="footer"></router-view>
