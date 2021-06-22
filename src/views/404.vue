@@ -1,20 +1,17 @@
 <template>
-  <div class="dbwrapper text">
-    <b-container fluid>
-      <b-row>
-        <b-col>
-          <div class="dbcontent">
-            <!-- Einbinden eines "testpings" zur vereinfachten Entwicklung und Demonstration -->
-            <h2>404 Page not found</h2>
-          </div>
-        </b-col>
-      </b-row>
-    </b-container>
+  <div>
+    <div class="wrapper text">
+      <span class="err">
+        4
+        <img class="err" src="@/assets/cross.svg" alt="0" srcset="">
+        4
+      </span>
+      <p class="text">page not found</p>
+    </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: '404',
   components: {
@@ -28,51 +25,22 @@ export default {
 };
 </script>
 <style scoped>
-  .text {
-    color: white;
-  }
-  .dbwrapper {
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(180deg, #1C2A4D 0%, #000000 100%);
+
+  .wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 
-  .dbcontent {
-    height: 90vh;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-  }
-
-  .dbboxwrapper
-  {
-    padding: 1rem;
-  }
-  .dbbox {
-    padding: 1rem;
-    background: #303A53;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-  }
-
-  .dbboxActive {
-    border: 2px solid green;
-  }
-
-  .chart {
-    height: 150px;
-  }
-
-  .cal {
-    height: 250px;
-    width: 100%;
-  }
-
-  .stoppen {
-    color: red;
-  }
-
-  .starten {
-    color: green;
-  }
+ .err {
+   display: flex;
+   align-items:center;
+   font-size: 30vh;
+   height: 1.25ch;
+ }
+ .text {
+   font-size: 50pt;
+ }
 </style>
