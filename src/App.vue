@@ -97,4 +97,24 @@ body {
   height: 3.125rem;
 }
 
+.confirmButton {
+  position: fixed;
+  bottom: 0;
+  padding: 0;
+  width: 100%;
+  height: 141px;
+  line-height: 141px;
+  border-radius: 0px;
+  background-color: #716EFF;
+  color: white;
+  font-size: 18pt;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.confirmButtonDisabled {
+  opacity: 0.7;
+  cursor: not-allowed !important;
+}
+
 </style>

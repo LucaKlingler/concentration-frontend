@@ -21,7 +21,7 @@ import Calculation from '../components/Calculation.vue';
 import WindowControls from '../components/WindowControls.vue';
 
 export default {
-  name: 'Home',
+  name: 'Captcha',
   data() {
     return {
       challenge: null,

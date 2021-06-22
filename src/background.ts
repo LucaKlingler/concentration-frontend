@@ -27,7 +27,7 @@ async function createWindow() {
     width: 1080, //  width: 750,
     height: 720, // height: 910,
     frame: false,
-    transparent: true,
+    transparent: false,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,

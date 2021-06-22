@@ -6,38 +6,40 @@
       <br>
       <b class="challengeText">{{category}}</b>
     </p>
-    <div class="captchaWrapper" ref="captchaWrapper">
-      <div class="captchaOverlay" v-if="showWrong">
-        <img class="captchaImageCheckmark" src="@/assets/cross.svg" alt="" srcset="">
-      </div>
-      <table>
-        <!-- generieren von "size" Reihen -->
-        <tr v-for="i in size" :key="i">
-          <!-- generieren von "size" Spalten -->
-          <td v-for="u in size" :key="u"
-          :style="{ width: imgSize, height: imgSize }"
-          :class="{ right: pictures[(i-1)*size+(u-1)].img.includes(category) &&
-          pictures[(i-1)*size+(u-1)].clicked && false,
-          wrong: !pictures[(i-1)*size+(u-1)].img.includes(category) &&
-          pictures[(i-1)*size+(u-1)].clicked && false }">
-            <!-- hinzufügen der entsprechenden Bilder -->
-            <div class="captchaImageWrapper">
-              <div class="captchaImageOverlay" v-if="pictures[(i-1)*size+(u-1)].clicked">
-                <img v-if="pictures[(i-1)*size+(u-1)].img.includes(category) &&
-                pictures[(i-1)*size+(u-1)].clicked" class="captchaImageCheckmark"
-                src="@/assets/checkmark.svg" alt="" srcset="">
-                <img v-if="!pictures[(i-1)*size+(u-1)].img.includes(category) &&
-                pictures[(i-1)*size+(u-1)].clicked" class="captchaImageCheckmark"
-                src="@/assets/cross.svg" alt="" srcset="">
+    <div class="captchaWrapper">
+      <div class="tableWrapper" ref="captchaWrapper">
+        <div class="captchaOverlay" v-if="showWrong">
+          <img class="captchaImageCheckmark" src="@/assets/cross.svg" alt="" srcset="">
+        </div>
+        <table>
+          <!-- generieren von "size" Reihen -->
+          <tr v-for="i in size" :key="i">
+            <!-- generieren von "size" Spalten -->
+            <td v-for="u in size" :key="u"
+            :style="{ width: imgSize, height: imgSize }"
+            :class="{ right: pictures[(i-1)*size+(u-1)].img.includes(category) &&
+            pictures[(i-1)*size+(u-1)].clicked && false,
+            wrong: !pictures[(i-1)*size+(u-1)].img.includes(category) &&
+            pictures[(i-1)*size+(u-1)].clicked && false }">
+              <!-- hinzufügen der entsprechenden Bilder -->
+              <div class="captchaImageWrapper">
+                <div class="captchaImageOverlay" v-if="pictures[(i-1)*size+(u-1)].clicked">
+                  <img v-if="pictures[(i-1)*size+(u-1)].img.includes(category) &&
+                  pictures[(i-1)*size+(u-1)].clicked" class="captchaImageCheckmark"
+                  src="@/assets/checkmark.svg" alt="" srcset="">
+                  <img v-if="!pictures[(i-1)*size+(u-1)].img.includes(category) &&
+                  pictures[(i-1)*size+(u-1)].clicked" class="captchaImageCheckmark"
+                  src="@/assets/cross.svg" alt="" srcset="">
+                </div>
+                <img class="captchaImage"
+                :src="require(`@/assets/pictures${pictures[(i-1)*size+(u-1)].img}`)"
+                @click="captchaClick(pictures[(i-1)*size+(u-1)])"
+                v-show="!pictures[(i-1)*size+(u-1)].clicked || true">
               </div>
-              <img class="captchaImage"
-              :src="require(`@/assets/pictures${pictures[(i-1)*size+(u-1)].img}`)"
-              @click="captchaClick(pictures[(i-1)*size+(u-1)])"
-              v-show="!pictures[(i-1)*size+(u-1)].clicked || true">
-            </div>
-          </td>
-        </tr>
-      </table>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
     <b-button :class="{ confirmButton: true,
       confirmButtonDisabled: !solved, 'flex-grow-1': true }"
@@ -79,7 +81,7 @@ export default {
         this.failedCaptchas.push(this.pictures);
         this.showWrong = true;
         setTimeout(() => {
-          // this.createCaptcha();
+          this.createCaptcha();
         }, 1000);
       }
       // Wenn alle richtig geklickt, an Backend senden
@@ -102,8 +104,18 @@ export default {
         challenge: this.challenge,
       })
         .then((res) => {
+          this.$router.push({
+            path: '/result',
+            query: {
+              startTs: this.notificationTs,
+              clickedTs: this.startTime,
+              totalTime: res.data,
+            },
+          });
+          /*
           alert(res.data);
           window.close();
+          */
         }).catch(() => console.log());
     },
     // Kreiert Captcha aus zufälligen Bildern
@@ -169,11 +181,15 @@ export default {
 }
 
 .captchaWrapper {
+  padding: 1rem;
+  background-color: white;
+}
+
+.tableWrapper {
   width: 100%;
   background-color: white;
   position: relative;
   display: block;
-  margin: 1rem;
 }
 
 .captchaOverlay {
@@ -221,18 +237,4 @@ td {
   background-color: red;
 }
 
-.confirmButton {
-  background-color: #716EFF;
-  width: 100%;
-  line-height: 100%;
-  color: white;
-  font-size: 18pt;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.confirmButtonDisabled {
-  opacity: 0.7;
-  cursor: not-allowed !important;
-}
 </style>
