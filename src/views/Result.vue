@@ -1,7 +1,6 @@
 <template>
-  <div class="captcha min-vh-100 d-flex flex-column">
-    <b-container fluid>
-    <b-row class="menu">
+    <b-container fluid class="captcha min-vh-100 d-flex flex-column" style="padding: 0">
+    <b-row class="menu" style="margin: 0">
       <b-col cols="1">
         <WindowControls/>
       </b-col>
@@ -58,12 +57,11 @@
       <b-col>
       </b-col>
     </b-row>
-  </b-container>
   <b-button class="confirmButton"
     @click="window.close()">
     schließen
   </b-button>
-  </div>
+  </b-container>
 </template>
 
 <script>
