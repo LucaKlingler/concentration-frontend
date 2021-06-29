@@ -1,96 +1,140 @@
 <template>
-  <div class="d-flex text">
+  <div class="db d-flex text">
     <div class="align-self-center" style="width: 100%;">
       <b-row>
-        <b-col cols="6">
+        <b-col>
+
           <b-row :style="{ height: `${rowHeight}px` }">
-            <b-col class="dbButton" ref="dbButton">
-            <div class="dbButtonContainer d-flex justify-content-center"
-            style="background-color: #469D4F;">
-              <div class="dbButtonContents align-self-center">
-                <img class="dbButtonIcon" src="@/assets/icons/start.svg" alt="" srcset="">
-                <br>
-                Messung starten
+            <b-col cols="3" class="dbButton" ref="dbButton">
+              <div class="dbButtonContainer d-flex justify-content-center"
+              style="background-color: #469D4F;">
+                <div class="dbButtonContents align-self-center">
+                  <img class="dbButtonIcon" src="@/assets/icons/start.svg" alt="" srcset="">
+                  <br>
+                  Messung starten
+                </div>
               </div>
-            </div>
             </b-col>
 
-            <b-col class="dbButton">
+            <b-col class="dbButton" cols="3">
               <div class="dbButtonContainer d-flex justify-content-center">
                 <div class="dbButtonContents align-self-center">
                   <img class="dbButtonIcon" src="@/assets/icons/join-meeting.svg" alt="" srcset="">
                   <br>
                   Meeting beitreten
+                </div>
               </div>
-            </div>
             </b-col>
+
+            <b-col cols="6">
+              <b-row class="dbBlock" style="height: 100%;">
+                <b-col class="d-flex flex-column">
+                  <b-row>
+                    <p>Letzte Messung</p>
+                  </b-row>
+                  <b-row class="dbBlockWrapper flex-grow-1">
+                    <div class="dbBlockContainer">
+                      <b-row style="color: black; height: 100%;">
+                        <b-col class="d-flex">
+                          <p class="align-self-center" style="margin:0">
+                            Prototyping/Redesign
+                            <br>
+                            <span>(Donnerstag, 06 Mai 2021)</span>
+                          </p>
+                        </b-col>
+                        <b-col class="d-flex">
+                          <div class="d-flex flex-grow-1">
+                            <div class="align-self-center">
+                              7 aufgaben
+                              84%
+                            </div>
+                          </div>
+                        </b-col>
+                        <b-col class="d-flex">
+                          <div class="d-flex flex-grow-1">
+                            <div class="align-self-center">
+                              7 aufgaben
+                              84%
+                            </div>
+                          </div>
+                        </b-col>
+                      </b-row>
+                    </div>
+                  </b-row>
+                </b-col>
+              </b-row>
+            </b-col>
+
           </b-row>
 
           <b-row :style="{ height: `${rowHeight}px` }">
-            <b-col class="dbButton">
+            <b-col cols="3" class="dbButton">
               <div class="dbButtonContainer d-flex justify-content-center">
                 <div class="dbButtonContents align-self-center">
                   <img class="dbButtonIcon" src="@/assets/icons/statistics.svg" alt="" srcset="">
                   <br>
                   Statistiken
+                </div>
               </div>
-            </div>
             </b-col>
-            <b-col class="dbButton">
+            <b-col cols="3" class="dbButton">
               <div class="dbButtonContainer d-flex justify-content-center">
                 <div class="dbButtonContents align-self-center">
                   <img class="dbButtonIcon" src="@/assets/icons/calendar.svg" alt="" srcset="">
                   <br>
                   Kalender
+                </div>
               </div>
-            </div>
             </b-col>
-          </b-row>
-        </b-col>
 
-        <b-col cols="6">
-          <b-row>
-            <p>Letzte Messung</p>
-          </b-row>
-          <b-row class="dbBlockWrapper">
-            <div class="dbBlockContainer">
-              <b-row class="" style="color: black;">
-                <b-col>
-                  <p>
-                    Prototyping / Redesign
-                    <br>
-                    (Do, 243634)
-                  </p>
-                </b-col>
-                <b-col>
-                  <b-row>
-                    <b-col>
-                      7 aufgaben
-                    </b-col>
-                  </b-row>
-                  <b-row>
-                    <b-col>
-                      84%
-                    </b-col>
-                  </b-row>
-                </b-col>
-                <b-col>
-                  <b-row>
-                    <b-col>
-                      2h
-                    </b-col>
-                  </b-row>
-                  <b-row>
-                    <b-col>
-                      3 fehler
-                    </b-col>
-                  </b-row>
-                </b-col>
+            <b-col cols="6" class="dbBlock" :style="{ height: `${rowHeight}px` }">
+              <b-row>
+                <p>Next Up</p>
               </b-row>
-            </div>
+              <b-row class="dbBlockWrapper">
+                <div class="dbBlockContainer">
+                  <b-row class="" style="color: black;">
+                    <b-col>
+                      <p>
+                        Prototyping / Redesign
+                        <br>
+                        <span>(Donnerstag, 06 Mai 2021)</span>
+                      </p>
+                    </b-col>
+                    <b-col>
+                      <b-row>
+                        <b-col>
+                          9:00 - 12:00
+                        </b-col>
+                      </b-row>
+                    </b-col>
+                  </b-row>
+                </div>
+              </b-row>
+              <b-row class="dbBlockWrapper">
+                <div class="dbBlockContainer">
+                  <b-row class="" style="color: black;">
+                    <b-col>
+                      <p>
+                        Prototyping / Redesign
+                        <br>
+                        <span>(Donnerstag, 06 Mai 2021)</span>
+                      </p>
+                    </b-col>
+                    <b-col>
+                      <b-row>
+                        <b-col>
+                          9:00 - 12:00
+                        </b-col>
+                      </b-row>
+                    </b-col>
+                  </b-row>
+                </div>
+              </b-row>
+            </b-col>
+
           </b-row>
         </b-col>
-
       </b-row>
     </div>
   </div>
@@ -176,7 +220,10 @@ export default {
 };
 </script>
 <style scoped>
-
+  .db {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
   .dbButton {
     border-radius: 20px;
     width: 100%;
@@ -196,14 +243,20 @@ export default {
   .dbButtonIcon {
     width: 40%;
   }
+  .dbBlock {
+    padding-left: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
   .dbBlockWrapper {
     width: 100%;
-    padding: 1rem;
+    padding-top: 0.5rem;
   }
   .dbBlockContainer {
     width: 100%;
+    padding: 0.5rem;
     border-radius: 20px;
-    background-color: white;
+    background-color: #D3D3D3;
   }
 
 .dbwrapper {
