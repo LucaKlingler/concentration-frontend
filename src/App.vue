@@ -66,13 +66,21 @@ export default {
 
 <style>
 
+@font-face {
+  font-family: "SanFrancisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
 :root {
   --background-color: #2F2F2F;
   overflow: hidden;
+  font-family: "San Francisco";
 }
 
 body {
   background-color: var(--background-color);
+  /*font-family: SanFrancisco;*/
 }
 
 .text {

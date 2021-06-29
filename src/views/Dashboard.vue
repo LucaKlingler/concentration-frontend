@@ -30,22 +30,25 @@
               <b-row class="dbBlock" style="height: 100%;">
                 <b-col class="d-flex flex-column">
                   <b-row>
-                    <p>Letzte Messung</p>
+                    <p style="margin: 0px">Letzte Messung</p>
                   </b-row>
                   <b-row class="dbBlockWrapper flex-grow-1">
                     <div class="dbBlockContainer">
                       <b-row style="color: black; height: 100%;">
                         <b-col class="d-flex">
                           <p class="align-self-center" style="margin:0">
-                            Prototyping/Redesign
+                            <span class="dbBlockTitle">Prototyping/Redesign</span>
                             <br>
-                            <span>(Donnerstag, 06 Mai 2021)</span>
+                            <span class="dbBlockSubtitle">(Donnerstag, 06 Mai 2021)</span>
                           </p>
                         </b-col>
                         <b-col class="d-flex">
                           <div class="d-flex flex-grow-1">
                             <div class="align-self-center">
-                              7 aufgaben
+                              <img class="dbBlockIcon" src="@/assets/icons/tasks.svg">
+                              7 Aufgaben
+                              <br><br>
+                              <img class="dbBlockIcon" src="@/assets/icons/concentration.svg">
                               84%
                             </div>
                           </div>
@@ -53,8 +56,11 @@
                         <b-col class="d-flex">
                           <div class="d-flex flex-grow-1">
                             <div class="align-self-center">
-                              7 aufgaben
-                              84%
+                              <img class="dbBlockIcon" src="@/assets/icons/time.svg">
+                              2h 56min
+                              <br><br>
+                              <img class="dbBlockIcon" src="@/assets/icons/mistakes.svg">
+                              2 Fehler
                             </div>
                           </div>
                         </b-col>
@@ -77,6 +83,7 @@
                 </div>
               </div>
             </b-col>
+
             <b-col cols="3" class="dbButton">
               <div class="dbButtonContainer d-flex justify-content-center">
                 <div class="dbButtonContents align-self-center">
@@ -87,49 +94,53 @@
               </div>
             </b-col>
 
-            <b-col cols="6" class="dbBlock" :style="{ height: `${rowHeight}px` }">
-              <b-row>
-                <p>Next Up</p>
-              </b-row>
-              <b-row class="dbBlockWrapper">
-                <div class="dbBlockContainer">
-                  <b-row class="" style="color: black;">
-                    <b-col>
-                      <p>
-                        Prototyping / Redesign
-                        <br>
-                        <span>(Donnerstag, 06 Mai 2021)</span>
-                      </p>
-                    </b-col>
-                    <b-col>
-                      <b-row>
+            <b-col cols="6">
+              <b-row class="dbBlock" style="height: 100%;">
+                <b-col class="d-flex flex-column">
+                  <b-row>
+                    <p style="margin: 0px">Next Up</p>
+                  </b-row>
+                  <b-row class="dbBlockWrapper flex-grow-1">
+                    <div class="dbBlockContainer">
+                      <b-row class="" style="height: 100%; color: black;">
+                        <b-col class="d-flex">
+                          <div class="align-self-center">
+                            <span class="dbBlockTitle">Prototyping/Redesign</span>
+                            <br>
+                            <span class="dbBlockSubtitle">(Donnerstag, 06 Mai 2021)</span>
+                          </div>
+                        </b-col>
                         <b-col>
-                          9:00 - 12:00
+                          <b-row style="height: 100%">
+                            <b-col class="d-flex align-self-center">
+                              <span class="dbBlockTime">9:00 - 12:00</span>
+                            </b-col>
+                          </b-row>
                         </b-col>
                       </b-row>
-                    </b-col>
+                    </div>
                   </b-row>
-                </div>
-              </b-row>
-              <b-row class="dbBlockWrapper">
-                <div class="dbBlockContainer">
-                  <b-row class="" style="color: black;">
-                    <b-col>
-                      <p>
-                        Prototyping / Redesign
-                        <br>
-                        <span>(Donnerstag, 06 Mai 2021)</span>
-                      </p>
-                    </b-col>
-                    <b-col>
-                      <b-row>
+                  <b-row class="dbBlockWrapper flex-grow-1">
+                    <div class="dbBlockContainer">
+                      <b-row class="" style="color: black;">
+                        <b-col class="d-flex">
+                          <div class="align-self-center">
+                            <span class="dbBlockTitle">Prototyping/Redesign</span>
+                            <br>
+                            <span class="dbBlockSubtitle">(Donnerstag, 06 Mai 2021)</span>
+                          </div>
+                        </b-col>
                         <b-col>
-                          9:00 - 12:00
+                          <b-row style="height: 100%">
+                            <b-col class="d-flex align-self-center">
+                              <span class="dbBlockTime">9:00 - 12:00</span>
+                            </b-col>
+                          </b-row>
                         </b-col>
                       </b-row>
-                    </b-col>
+                    </div>
                   </b-row>
-                </div>
+                </b-col>
               </b-row>
             </b-col>
 
@@ -232,7 +243,7 @@ export default {
   }
   .dbButtonContainer {
     background-color: #716EFF;
-    border-radius: 20px;
+    border-radius: 5px;
     width: 100%;
     height: 100%;
   }
@@ -241,7 +252,7 @@ export default {
     text-align: center;
   }
   .dbButtonIcon {
-    width: 40%;
+    width: 3rem;
   }
   .dbBlock {
     padding-left: 2rem;
@@ -255,8 +266,31 @@ export default {
   .dbBlockContainer {
     width: 100%;
     padding: 0.5rem;
-    border-radius: 20px;
+    border-radius: 5px;
     background-color: #D3D3D3;
+  }
+  .dbBlockTitle {
+    font-size: 10pt;
+    line-height: 1ch;
+  }
+  .dbBlockSubtitle {
+    font-size: 7pt;
+    font-weight: 300;
+    line-height: 1ch;
+  }
+  .dbBlockSubtitle {
+    font-size: 7pt;
+    font-weight: 300;
+    line-height: 1ch;
+  }
+  .dbBlockTime {
+    font-size: 18pt;
+    font-weight: 300;
+    line-height: 1ch;
+  }
+  .dbBlockIcon {
+    width: 1.5rem;
+    margin-right: 0.5rem;
   }
 
 .dbwrapper {
@@ -315,4 +349,4 @@ export default {
     border-radius: 10px;
     padding: 1rem;
   }
-</style>
+</styleonnerstag,>
