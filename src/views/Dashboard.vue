@@ -4,43 +4,75 @@
       <b-row>
         <b-col>
           <div class="dbcontent">
-            <!-- Einbinden eines "testpings" zur vereinfachten Entwicklung und Demonstration -->
-            <h2 @click="testPing">Dashboard</h2>
-            <b-row>
-              <b-col cols="6" class="dbboxwrapper">
+            <b-row align-v="center">
+              <b-col cols="3" class="dbboxwrapper">
                 <div :class="{ dbbox: true, dbboxActive: $store.state.testing }">
-                  <b-button v-if="$store.state.testing === false"
-                    @click="startTest">Messung starten</b-button>
+                  <div class="startMeassurement">
+                  <b-button v-if="$store.state.testing === false" @click="startTest">
+                    <img src="" alt="">
+                    <p>Starten</p>
+                  </b-button>
                   <b-button v-if="$store.state.testing === true" variant="danger"
                     @click="stopTest">Messung stoppen</b-button>
-                  <br><br>
+                    </div>
+                  <!-- <br><br>
                   <p>Messung läuft seit: {{timerS}}</p>
                   <p>Du bist derzeit {{this.$store.state.concentration === 0 ?
-                    'nicht konzentriert' : 'konzentriert'}}.</p>
+                    'nicht konzentriert' : 'konzentriert'}}.</p> -->
+                </div>
+              </b-col>
+              <b-col cols="3" class="dbboxwrapper meeting">
+                <div :class="{ dbbox: true, dbboxActive: $store.state.testing }">
+                  <div>Meeting beitreten</div>
                 </div>
               </b-col>
               <b-col cols="6" class="dbboxwrapper">
-                <div class="dbbox">
-                  <!-- einbinden des Vue Kalenders in kleiner Form -->
+                <div class="dbbox meassurementDisplay">
+                  <!--
+                  einbinden des Vue Kalenders in kleiner Form
                   <vue-cal xsmall active-view="day" :disable-views="['years', 'year', 'month']"
                   class="cal" />
+                  -->
+                  <div>
+                    <p>
+                      letzte Messung
+                    </p>
+                    <b-container>
+                      <b-row align-v="center">
+                      <b-col>Prototyping/Redesign</b-col>
+                      <b-col>
+                        <b-row>7 Aufgaben</b-row>
+                        <b-row>2h 56min</b-row>
+                      </b-col>
+                      <b-col>
+                        <b-row>84%</b-row>
+                        <b-row>2 Fehler</b-row>
+                      </b-col>
+                      </b-row>
+                    </b-container>
+                  </div>
                 </div>
               </b-col>
             </b-row>
             <b-row>
-              <b-col cols="6" class="dbboxwrapper">
+              <b-col cols="3" class="dbboxwrapper statistik">
                 <div class="dbbox">
-                  <p>Test Historie</p>
+                  <div>Statistik</div>
                   <p>
-                    <span v-for="e in history" :key="e.start">{{e.start}}:
-                      {{e.dir}} Sek. - {{e.fails}} Fehler<br></span>
+                    <!--<span v-for="e in history" :key="e.start">{{e.start}}:
+                      {{e.dir}} Sek. - {{e.fails}} Fehler<br></span>-->
                   </p>
                 </div>
               </b-col>
-              <b-col cols="6" class="dbboxwrapper" style="cursor: pointer;"
+              <b-col cols="3" class="dbboxwrapper kalender">
+                <div class="dbbox">
+                  <div>Kalender</div>
+                </div>
+              </b-col>
+              <b-col cols="6" class="dbboxwrapper nextUp" style="cursor: pointer;"
                 @click="$router.push('/statistics')">
                 <div class="dbbox">
-                  Heutige Statistik
+                  Next Up
                   <DailyStatistic class="chart"/>
                 </div>
               </b-col>
@@ -55,15 +87,15 @@
 
 <script>
 // import Notification from 'node-mac-notifier';
-import VueCal from 'vue-cal';
-import 'vue-cal/dist/vuecal.css';
+// import VueCal from 'vue-cal';
+// import 'vue-cal/dist/vuecal.css';
 import DailyStatistic from '../components/DailyStatistic.vue';
 
 export default {
   name: 'Dashboard',
   components: {
     DailyStatistic,
-    VueCal,
+    // VueCal,
   },
   data() {
     return {
@@ -142,13 +174,20 @@ export default {
   .dbboxwrapper
   {
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
   }
   .dbbox {
     padding: 1rem;
-    background: #303A53;
     width: 100%;
     height: 100%;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .dbboxActive {
@@ -170,5 +209,10 @@ export default {
 
   .starten {
     color: green;
+  }
+  .startMeassurement {
+    background: #CD972E;
+    border-radius: 10px;
+    padding: 1rem;
   }
 </style>

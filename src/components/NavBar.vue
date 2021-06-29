@@ -25,6 +25,12 @@
         </router-link>
       </b-col>
       <b-col></b-col>
+       <b-col cols="1" id="testping" class="menuItem">
+        <span @click="testPing" class="link">
+          <b-icon class="menuIcon" icon="chat-right-text" />
+        </span>
+      </b-col>
+      <b-tooltip target="testping" triggers="hover">Test-Ping</b-tooltip>
        <b-col cols="1" class="menuItem">
         <router-link class="link" to="/settings">
           <b-icon class="menuIcon" icon="gear" />
