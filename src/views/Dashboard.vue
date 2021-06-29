@@ -1,87 +1,98 @@
 <template>
-  <div class="dbwrapper text">
-    <b-container fluid>
+  <div class="d-flex text">
+    <div class="align-self-center" style="width: 100%;">
       <b-row>
-        <b-col>
-          <div class="dbcontent">
-            <b-row align-v="center">
-              <b-col cols="3" class="dbboxwrapper">
-                <div :class="{ dbbox: true, dbboxActive: $store.state.testing }">
-                  <div class="startMeassurement">
-                  <b-button v-if="$store.state.testing === false" @click="startTest">
-                    <img src="" alt="">
-                    <p>Starten</p>
-                  </b-button>
-                  <b-button v-if="$store.state.testing === true" variant="danger"
-                    @click="stopTest">Messung stoppen</b-button>
-                    </div>
-                  <!-- <br><br>
-                  <p>Messung läuft seit: {{timerS}}</p>
-                  <p>Du bist derzeit {{this.$store.state.concentration === 0 ?
-                    'nicht konzentriert' : 'konzentriert'}}.</p> -->
-                </div>
-              </b-col>
-              <b-col cols="3" class="dbboxwrapper meeting">
-                <div :class="{ dbbox: true, dbboxActive: $store.state.testing }">
-                  <div>Meeting beitreten</div>
-                </div>
-              </b-col>
-              <b-col cols="6" class="dbboxwrapper">
-                <div class="dbbox meassurementDisplay">
-                  <!--
-                  einbinden des Vue Kalenders in kleiner Form
-                  <vue-cal xsmall active-view="day" :disable-views="['years', 'year', 'month']"
-                  class="cal" />
-                  -->
-                  <div>
-                    <p>
-                      letzte Messung
-                    </p>
-                    <b-container>
-                      <b-row align-v="center">
-                      <b-col>Prototyping/Redesign</b-col>
-                      <b-col>
-                        <b-row>7 Aufgaben</b-row>
-                        <b-row>2h 56min</b-row>
-                      </b-col>
-                      <b-col>
-                        <b-row>84%</b-row>
-                        <b-row>2 Fehler</b-row>
-                      </b-col>
-                      </b-row>
-                    </b-container>
-                  </div>
-                </div>
-              </b-col>
-            </b-row>
-            <b-row>
-              <b-col cols="3" class="dbboxwrapper statistik">
-                <div class="dbbox">
-                  <div>Statistik</div>
-                  <p>
-                    <!--<span v-for="e in history" :key="e.start">{{e.start}}:
-                      {{e.dir}} Sek. - {{e.fails}} Fehler<br></span>-->
-                  </p>
-                </div>
-              </b-col>
-              <b-col cols="3" class="dbboxwrapper kalender">
-                <div class="dbbox">
-                  <div>Kalender</div>
-                </div>
-              </b-col>
-              <b-col cols="6" class="dbboxwrapper nextUp" style="cursor: pointer;"
-                @click="$router.push('/statistics')">
-                <div class="dbbox">
-                  Next Up
-                  <DailyStatistic class="chart"/>
-                </div>
-              </b-col>
-            </b-row>
-          </div>
+        <b-col cols="6">
+          <b-row :style="{ height: `${rowHeight}px` }">
+            <b-col class="dbButton" ref="dbButton">
+            <div class="dbButtonContainer d-flex justify-content-center"
+            style="background-color: #469D4F;">
+              <div class="dbButtonContents align-self-center">
+                <img class="dbButtonIcon" src="@/assets/icons/start.svg" alt="" srcset="">
+                <br>
+                Messung starten
+              </div>
+            </div>
+            </b-col>
+
+            <b-col class="dbButton">
+              <div class="dbButtonContainer d-flex justify-content-center">
+                <div class="dbButtonContents align-self-center">
+                  <img class="dbButtonIcon" src="@/assets/icons/join-meeting.svg" alt="" srcset="">
+                  <br>
+                  Meeting beitreten
+              </div>
+            </div>
+            </b-col>
+          </b-row>
+
+          <b-row :style="{ height: `${rowHeight}px` }">
+            <b-col class="dbButton">
+              <div class="dbButtonContainer d-flex justify-content-center">
+                <div class="dbButtonContents align-self-center">
+                  <img class="dbButtonIcon" src="@/assets/icons/statistics.svg" alt="" srcset="">
+                  <br>
+                  Statistiken
+              </div>
+            </div>
+            </b-col>
+            <b-col class="dbButton">
+              <div class="dbButtonContainer d-flex justify-content-center">
+                <div class="dbButtonContents align-self-center">
+                  <img class="dbButtonIcon" src="@/assets/icons/calendar.svg" alt="" srcset="">
+                  <br>
+                  Kalender
+              </div>
+            </div>
+            </b-col>
+          </b-row>
         </b-col>
-        <b-col cols="1" />
+
+        <b-col cols="6">
+          <b-row>
+            <p>Letzte Messung</p>
+          </b-row>
+          <b-row class="dbBlockWrapper">
+            <div class="dbBlockContainer">
+              <b-row class="" style="color: black;">
+                <b-col>
+                  <p>
+                    Prototyping / Redesign
+                    <br>
+                    (Do, 243634)
+                  </p>
+                </b-col>
+                <b-col>
+                  <b-row>
+                    <b-col>
+                      7 aufgaben
+                    </b-col>
+                  </b-row>
+                  <b-row>
+                    <b-col>
+                      84%
+                    </b-col>
+                  </b-row>
+                </b-col>
+                <b-col>
+                  <b-row>
+                    <b-col>
+                      2h
+                    </b-col>
+                  </b-row>
+                  <b-row>
+                    <b-col>
+                      3 fehler
+                    </b-col>
+                  </b-row>
+                </b-col>
+              </b-row>
+            </div>
+          </b-row>
+        </b-col>
+
       </b-row>
-    </b-container>
+    </div>
   </div>
 </template>
 
@@ -89,17 +100,18 @@
 // import Notification from 'node-mac-notifier';
 // import VueCal from 'vue-cal';
 // import 'vue-cal/dist/vuecal.css';
-import DailyStatistic from '../components/DailyStatistic.vue';
+// import DailyStatistic from '../components/DailyStatistic.vue';
 
 export default {
   name: 'Dashboard',
   components: {
-    DailyStatistic,
+    // DailyStatistic,
     // VueCal,
   },
   data() {
     return {
       history: [],
+      loaded: false,
     };
   },
   // updaten der Daten alle 10 Sekunden
@@ -108,6 +120,7 @@ export default {
     setInterval(() => {
       this.getHistory();
     }, 10000);
+    this.loaded = true;
   },
   methods: {
     startTest() {
@@ -155,11 +168,45 @@ export default {
       }
       return out;
     },
+    rowHeight() {
+      if (!this.loaded) return 100;
+      return this.$refs?.dbButton?.clientWidth;
+    },
   },
 };
 </script>
 <style scoped>
-  .dbwrapper {
+
+  .dbButton {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+  }
+  .dbButtonContainer {
+    background-color: #716EFF;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+  }
+  .dbButtonContents {
+    color: white;
+    text-align: center;
+  }
+  .dbButtonIcon {
+    width: 40%;
+  }
+  .dbBlockWrapper {
+    width: 100%;
+    padding: 1rem;
+  }
+  .dbBlockContainer {
+    width: 100%;
+    border-radius: 20px;
+    background-color: white;
+  }
+
+.dbwrapper {
     width: 100vw;
     height: 100vh;
     overflow: scroll;
