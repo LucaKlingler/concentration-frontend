@@ -100,7 +100,8 @@
                   <b-row>
                     <p style="margin: 0px">Next Up</p>
                   </b-row>
-                  <b-row class="dbBlockWrapper flex-grow-1">
+                  <b-row style="height: 1rem;"/>
+                  <b-row class="dbBlockWrapper flex-grow-1" style="padding-top: 0rem;">
                     <div class="dbBlockContainer">
                       <b-row class="" style="height: 100%; color: black;">
                         <b-col class="d-flex">
@@ -120,9 +121,10 @@
                       </b-row>
                     </div>
                   </b-row>
+                  <b-row style="height: 1rem;"/>
                   <b-row class="dbBlockWrapper flex-grow-1">
                     <div class="dbBlockContainer">
-                      <b-row class="" style="color: black;">
+                      <b-row class="" style="height: 100%; color: black;">
                         <b-col class="d-flex">
                           <div class="align-self-center">
                             <span class="dbBlockTitle">Prototyping/Redesign</span>
