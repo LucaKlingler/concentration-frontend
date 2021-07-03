@@ -29,6 +29,7 @@
     "vue-cal": "^3.10.0",
     "vue-chartjs": "^3.5.1",
     "vue-google-calendar": "^0.3.4",
+    "vue-mqtt": "^2.0.3",
     "vue-router": "^3.2.0",
     "vue-socket.io": "^3.0.10",
     "vue2-transitions": "^0.3.0",

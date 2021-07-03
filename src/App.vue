@@ -20,13 +20,23 @@ export default {
   },
   data() {
     return {
+      mqttMsg: undefined,
       concentration: null,
       lastPingTs: null,
     };
   },
+  mqtt: {
+    /*
+    lsd(msg) {
+      this.mqttMsg = JSON.parse(msg.toString());
+    },
+    */
+  },
   mounted() {
     // startet die Pings
     this.ping();
+    // this.$mqtt.subscribe('lsd');
+    // this.$mqtt.publish('/laborwoche/test', 'Hello World!');
     this.$store.state.role = localStorage.getItem('role');
     window.ipc.on('keylogger', (payload) => {
       this.$store.state.concentration = payload.data * 1;

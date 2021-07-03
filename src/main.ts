@@ -7,9 +7,12 @@ import axios from 'axios';
 // import VueSocketIO from 'vue-socket.io';
 import { ToastPlugin } from 'bootstrap-vue';
 import VueAxios from 'vue-axios';
+import VueMqtt from 'vue-mqtt';
 import App from './App.vue';
 import router from './router/router';
 import store from './store';
+
+Vue.use(VueMqtt, 'wss://mqtt.ava.hfg.design/mqtt', { clientId: `concentration-${parseInt(Math.random() * 100000, 10)}` });
 
 Vue.use(ToastPlugin);
 

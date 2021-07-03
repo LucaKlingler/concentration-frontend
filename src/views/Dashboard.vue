@@ -191,7 +191,11 @@ export default {
     },
     // greift die letzten Testergebnisse aus dem Backend ab und zeigt sie an
     getHistory() {
-      this.axios.get('/dashboard/getHistory').then((res) => {
+      this.axios.get('/dashboard/getHistory', {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }).then((res) => {
         this.history = [];
         res.data.forEach((e) => {
           const startD = new Date(parseInt(e.start, 10));
