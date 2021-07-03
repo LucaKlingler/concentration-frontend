@@ -27,6 +27,7 @@ export default {
   mounted() {
     // startet die Pings
     this.ping();
+    this.$store.state.role = localStorage.getItem('role');
     window.ipc.on('keylogger', (payload) => {
       this.$store.state.concentration = payload.data * 1;
       // console.log(payload);
@@ -120,6 +121,18 @@ body {
 .confirmButtonDisabled {
   opacity: 0.7;
   cursor: not-allowed !important;
+}
+
+.input {
+  background-color:#B2B2B2;
+  border-radius: 5px;
+}
+
+.input.form-control {
+  color: var(--background-color);
+}
+.input.form-control::placeholder {
+  color: white;
 }
 
 </style>

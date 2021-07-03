@@ -85,6 +85,10 @@ export default {
           endTime: Date.now(),
           failedCaptchas: this.failedCaptchas,
           fails: this.failedCaptchas.length,
+        }, {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
         })
           .then((res) => {
             this.$router.push({

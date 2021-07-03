@@ -102,6 +102,10 @@ export default {
         endTime: Date.now(),
         size: this.size,
         challenge: this.challenge,
+      }, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
       })
         .then((res) => {
           this.$router.push({
@@ -150,7 +154,11 @@ export default {
   },
   mounted() {
     // Abruf der Größe des Captchas aus der Datenbank
-    this.axios.get('/recaptcha/getChallenge').then((res) => {
+    this.axios.get('/recaptcha/getChallenge', {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    }).then((res) => {
       this.size = res.data.size;
       this.challenge = res.data.challenge;
       this.createCaptcha();

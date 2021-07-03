@@ -10,6 +10,7 @@ export default new Vuex.Store({
     timer: 0,
     concentration: null,
     loggedIn: false,
+    role: null,
   },
   mutations: {
   },

@@ -61,7 +61,16 @@ const routes: Array<RouteConfig> = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
+    components: {
+      default: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
+    },
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    components: {
+      default: () => import(/* webpackChunkName: "about" */ '../views/Register.vue'),
+    },
   },
   {
     path: '/:pathMatch(.*)*',

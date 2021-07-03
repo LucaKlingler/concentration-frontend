@@ -10,16 +10,24 @@
       <div class="align-self-center text-center" style="width: 80vw;">
         <b-row>
           <b-col>
-            <p class="title">Concentration</p>
+            <p class="title">Erstelle einen Account</p>
           </b-col>
         </b-row>
         <b-row>
           <b-col>
-            <p class="text-left">Benutzername</p>
-            <b-input style="margin-bottom: 1rem;" type="text" class="input" v-model="user"/>
+            <p class="text-left">Vorname</p>
+            <b-input style="margin-bottom: 1rem;" type="text" class="input" v-model="preName"/>
+          </b-col>
+          <b-col>
+            <p class="text-left">Nachname</p>
+            <b-input style="margin-bottom: 1rem;" type="text" class="input" v-model="lastName"/>
           </b-col>
         </b-row>
         <b-row>
+          <b-col class="text-left">
+            <p>Benutzername</p>
+            <b-input type="text" v-model="user"  class="input"/>
+          </b-col>
           <b-col class="text-left">
             <p>Passwort</p>
             <b-input type="password" v-model="pwd" class="input"/>
@@ -28,14 +36,14 @@
         <b-row>
           <b-col>
             <b-button class="confirmButton" variant="primary"
-            @click="login">Anmelden</b-button>
+            @click="register">Registrieren</b-button>
           </b-col>
         </b-row>
         <b-row>
           <b-col>
             <p class="register">
-              Du hast noch keinen Account?
-              <router-link to="/register">Jetzt registrieren</router-link>
+              Du hast schon einen Account?
+              <router-link to="/login">Jetzt anmelden</router-link>
             </p>
           </b-col>
         </b-row>
@@ -45,6 +53,7 @@
 </template>
 
 <script>
+import sha512 from 'js-sha512';
 // import RoundedButton from '../components/RoundedButton';
 import WindowControls from '../components/WindowControls.vue';
 
@@ -54,26 +63,31 @@ export default {
     return {
       user: '',
       pwd: '',
+      preName: '',
+      lastName: '',
     };
   },
   methods: {
-    login() {
-      console.log('logging in…');
+    async register() {
       // authotizes user from the backend
-      this.axios.post('auth/login', {
+      const hashStr = `${this.user}:${this.preName}:${this.lastName}`;
+      const hash = await sha512(hashStr);
+      this.axios.post('auth/signup', {
         username: this.user,
         pwd: this.pwd,
+        preName: this.preName,
+        lastName: this.lastName,
+        role: 'student',
+        hash,
       })
         .then((res) => {
-          if (res.status !== 200) return this.toast('Es ist ein Fehler aufgetreten', 'Ungültige Login-Daten', 'danger');
+          if (res.status !== 200) return this.toast('Es ist ein Fehler aufgetreten', 'Der Nutzername ist bereits vergeben', 'danger');
           localStorage.setItem('token', res.data.token);
           this.$store.state.loggedIn = true;
           this.$store.state.preName = res.data.preName;
           this.$store.state.lastName = res.data.lastName;
-          this.$store.state.role = res.data.role;
           localStorage.setItem('preName', res.data.preName);
           localStorage.setItem('lastName', res.data.lastName);
-          localStorage.setItem('role', res.data.role);
           return this.$router.push('/');
         })
         .catch((/* err */) => {
@@ -84,6 +98,10 @@ export default {
   computed: {
     pwdValid() {
       return this.pwd.length > 6;
+    },
+    mailValid() {
+      const regex = RegExp(/^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,8}$/);
+      return regex.test(this.$store.state.mailTo);
     },
   },
   components: {

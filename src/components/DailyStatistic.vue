@@ -25,7 +25,11 @@ export default {
   methods: {
     // überschreiben der Datensätze und generieren von Punkten zu den entsprechenden Daten
     getStats() {
-      this.axios.get('/dashboard/getStats').then((res) => {
+      this.axios.get('/dashboard/getStats', {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }).then((res) => {
         this.recordings = [];
         this.recLabels = [];
         this.recData = [];

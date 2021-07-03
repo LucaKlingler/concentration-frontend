@@ -25,7 +25,11 @@ export default {
   methods: {
     // Ruft Daten aus Datenbank ab
     getStats() {
-      this.axios.get('/dashboard/getStats').then((res) => {
+      this.axios.get('/dashboard/getStats', {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }).then((res) => {
         const arr = [];
         const now = Date.now();
         res.data.forEach((e) => {
