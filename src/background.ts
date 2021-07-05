@@ -8,9 +8,9 @@ import fs from 'fs';
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 // const controller = exec(`python3 ${__dirname}/assets/keylogger.py`, (error) => {
-const keyloggerEnabled = false;
-if (keyloggerEnabled === true) {
-  const controller = exec(`cd ${path.join(app.getAppPath(), '..', 'src', 'Concentration-Messurement')} && pwd && sudo python3 -m concentration >> log.log`);
+const keyloggerEnabled = true;
+if (keyloggerEnabled) {
+  const controller = exec(`cd ${path.join(app.getAppPath(), '..', 'src')} && pwd && sudo python3 keylogger.py >> log.log`);
   if (controller.stdout !== null) controller.stdout.on('data', (msg) => console.log(msg));
   controller.on('close', () => console.log('python ended'));
 }
@@ -77,9 +77,11 @@ app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   // controller.kill();
-  process.kill(controller.pid);
-  process.kill(keyloggerPid);
-  console.log(controller.pid);
+  if (keyloggerEnabled) {
+    process.kill(controller.pid);
+    process.kill(keyloggerPid);
+    console.log(controller.pid);
+  }
   if (process.platform !== 'darwin') {
     app.quit();
   }
@@ -87,9 +89,11 @@ app.on('window-all-closed', () => {
 
 app.on('before-quit', () => {
   // controller.kill();
-  console.log(controller.pid);
-  process.kill(controller.pid);
-  process.kill(keyloggerPid);
+  if (keyloggerEnabled) {
+    console.log(controller.pid);
+    process.kill(controller.pid);
+    process.kill(keyloggerPid);
+  }
 });
 
 app.on('activate', () => {

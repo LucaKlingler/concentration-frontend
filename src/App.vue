@@ -29,33 +29,31 @@ export default {
     /*
     lsd(msg) {
       this.mqttMsg = JSON.parse(msg.toString());
+      // port 8000 für ws mqtt
     },
     */
   },
   mounted() {
     // startet die Pings
     this.ping();
-    // this.$mqtt.subscribe('lsd');
-    // this.$mqtt.publish('/laborwoche/test', 'Hello World!');
+    this.$mqtt.subscribe('lsd');
+    this.$mqtt.publish('/laborwoche/test', 'Hello World!');
     this.$store.state.role = localStorage.getItem('role');
     window.ipc.on('keylogger', (payload) => {
       this.$store.state.concentration = payload.data * 1;
-      // console.log(payload);
+      console.log(payload);
     });
     // startet Tsimer
-    setInterval(() => {
-      if (this.$store.state.timerEn) {
-        this.$store.state.timer += 1;
-        if (this.$store.state.concentration === 0
-          && (Date.now() - this.lastPingTs) > 1000 * 60 * 3) {
-          this.lastPingTs = Date.now();
-          console.log('ping');
-          this.testPing();
-        }
-        if (this.$store.state.concentration === 1) this.lastPingTs = 0;
-        // console.log('data:', concentrationString);
+    if (this.$store.state.timerEn) {
+      if (this.$store.state.concentration === 0
+        && (Date.now() - this.lastPingTs) > 1000 * 60 * 3) {
+        this.lastPingTs = Date.now();
+        console.log('ping');
+        this.testPing();
       }
-    }, 1000);
+      if (this.$store.state.concentration === 1) this.lastPingTs = 0;
+      // console.log('data:', concentrationString);
+    }
   },
   methods: {
     ping() {
@@ -92,6 +90,10 @@ export default {
 body {
   background-color: var(--background-color);
   /*font-family: SanFrancisco;*/
+  /*
+  padding: 1rem;
+  background: transparent;
+  */
 }
 
 .text {

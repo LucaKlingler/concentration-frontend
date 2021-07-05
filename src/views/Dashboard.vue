@@ -6,12 +6,21 @@
 
           <b-row :style="{ height: `${rowHeight}px` }">
             <b-col cols="3" class="dbButton" ref="dbButton">
-              <div class="dbButtonContainer d-flex justify-content-center"
-              style="background-color: #469D4F;">
+              <div class="dbButtonContainer d-flex justify-content-center dbButtonContainerGreen"
+                @click="startTest" v-if="$store.state.testing === false">
+                <div class="dbButtonContents align-self-center">
+                  <img class="dbButtonIcon" src="@/assets/icons/start.svg"
+                    style="color:red;" alt="" srcset=""/>
+                  <br>
+                  Messung starten
+                </div>
+              </div>
+              <div class="dbButtonContainer d-flex justify-content-center dbButtonContainerRed"
+              @click="stopTest"               v-if="$store.state.testing === true">
                 <div class="dbButtonContents align-self-center">
                   <img class="dbButtonIcon" src="@/assets/icons/start.svg" alt="" srcset="">
                   <br>
-                  Messung starten
+                  Messung stoppen
                 </div>
               </div>
             </b-col>
@@ -30,10 +39,12 @@
               <b-row class="dbBlock" style="height: 100%;">
                 <b-col class="d-flex flex-column">
                   <b-row>
-                    <p style="margin: 0px">Letzte Messung</p>
+                    <p style="margin: 0px">{{ $store.state.testing === true
+                      ? 'Aktuelle Messung' : 'Letzte Messung'}}</p>
                   </b-row>
                   <b-row class="dbBlockWrapper flex-grow-1">
-                    <div class="dbBlockContainer">
+                    <div class="dbBlockContainer"
+                    :style="{ border: $store.state.testing === true ? '3px solid #B81A1C' : '' }">
                       <b-row style="color: black; height: 100%;">
                         <b-col class="d-flex">
                           <p class="align-self-center" style="margin:0">
@@ -46,7 +57,7 @@
                           <div class="d-flex flex-grow-1">
                             <div class="align-self-center">
                               <img class="dbBlockIcon" src="@/assets/icons/tasks.svg">
-                              7 Aufgaben
+                              {{history.length}} Aufgaben
                               <br><br>
                               <img class="dbBlockIcon" src="@/assets/icons/concentration.svg">
                               84%
@@ -57,10 +68,10 @@
                           <div class="d-flex flex-grow-1">
                             <div class="align-self-center">
                               <img class="dbBlockIcon" src="@/assets/icons/time.svg">
-                              2h 56min
+                              {{timerS}}
                               <br><br>
                               <img class="dbBlockIcon" src="@/assets/icons/mistakes.svg">
-                              2 Fehler
+                              {{failureCount}} Fehler
                             </div>
                           </div>
                         </b-col>
@@ -167,6 +178,7 @@ export default {
   },
   data() {
     return {
+      timeNow: Date.now(),
       history: [],
       loaded: false,
     };
@@ -178,24 +190,29 @@ export default {
       this.getHistory();
     }, 10000);
     this.loaded = true;
+    setInterval(() => {
+      if (this.$store.state.timerEn) this.timeNow = Date.now();
+    }, 500);
   },
   methods: {
     startTest() {
       this.$store.state.testing = true;
       this.$store.state.timerEn = true;
+      this.$store.state.timer = Date.now();
+      this.getHistory();
     },
     stopTest() {
       this.$store.state.testing = false;
       this.$store.state.timerEn = false;
-      this.$store.state.timer = 0;
     },
     // greift die letzten Testergebnisse aus dem Backend ab und zeigt sie an
     getHistory() {
-      this.axios.get('/dashboard/getHistory', {
+      this.axios.get(`/dashboard/getHistory?time=${this.$store.state.timer}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       }).then((res) => {
+        console.log(res.data);
         this.history = [];
         res.data.forEach((e) => {
           const startD = new Date(parseInt(e.start, 10));
@@ -212,26 +229,31 @@ export default {
   computed: {
     // verbesserung des Timers (statt 65 Sekunden -> 1 Minute 5 Sekunden, 1 Sekunden -> 1 Sekunde)
     timerS() {
-      const time = this.$store.state.timer;
+      // if (!this.$store.state.timerEn) return '00:00:00';
+      const time = Math.floor((this.timeNow - this.$store.state.timer) / 1000);
       let out;
-      if (time === 1) {
-        out = '1 Sekunde';
-      } else if (time === 60) {
-        out = '1 Minute';
+      if (time === 60) {
+        out = '00:01:00';
+      } else if (time === 3600) {
+        out = '01:00:00';
       } else if (time < 60) {
-        out = `${time} Sekunden`;
-      } else if (time > 120) {
-        out = `${Math.floor(time / 60)} Minuten, ${time % 60} Sekunden`;
-      } else if (time > 60) {
-        out = `${Math.floor(time / 60)} Minute, ${time % 60} Sekunden`;
+        out = `00:00:${time.toString().padStart(2, '0')}`;
+      } else if (time < 3600) {
+        out = `00:${Math.floor(time / 60).toString().padStart(2, '0')}:${(time % 60).toString().padStart(2, '0')}`;
+      } else if (time < 3660) {
+        out = `${Math.floor(time / 3601).toString().padStart(2, '0')}:00:${(time % 60).toString().padStart(2, '0')}`;
       } else {
-        out = `${Math.floor(time / 60)} Minuten, ${time % 60} Sekunden`;
+        out = `${Math.floor(time / 3600).toString().padStart(2, '0')}:${Math.floor((time - (3600 * Math.floor(time / 3600))) / 60).toString().padStart(2, '0')}:${(time % 60).toString().padStart(2, '0')}`;
       }
       return out;
     },
     rowHeight() {
       if (!this.loaded) return 100;
       return this.$refs?.dbButton?.clientWidth;
+    },
+    failureCount() {
+      const fails = this.history.map((e) => e.fails);
+      return fails.reduce((a, b) => a + b, 0);
     },
   },
 };
@@ -248,10 +270,35 @@ export default {
     padding: 2rem;
   }
   .dbButtonContainer {
+    cursor: pointer;
     background-color: #716EFF;
     border-radius: 5px;
     width: 100%;
     height: 100%;
+  }
+  .dbButtonContainer:hover {
+    background-color: #4846bb;
+  }
+  .dbButtonContainer:active {
+    background-color: #716EFF;
+  }
+  .dbButtonContainerGreen {
+    background-color: #469D4F;
+  }
+  .dbButtonContainerGreen:hover {
+    background-color: #2f7235;
+  }
+  .dbButtonContainerGreen:active {
+    background-color: #469D4F;
+  }
+  .dbButtonContainerRed {
+    background-color: #B81A1C;
+  }
+  .dbButtonContainerRed:hover {
+    background-color: #9e1113;
+  }
+  .dbButtonContainerRed:active {
+    background-color: #B81A1C;
   }
   .dbButtonContents {
     color: white;
