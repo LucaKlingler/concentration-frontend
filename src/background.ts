@@ -1,20 +1,25 @@
 import { app, protocol, BrowserWindow, ipcMain } from 'electron';
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib';
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer';
-import { exec } from 'child_process';
+import { ChildProcess, exec } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
+// eslint-disable-next-line no-underscore-dangle
+declare const __static: string;
+
+let controller: ChildProcess;
+
 // const controller = exec(`python3 ${__dirname}/assets/keylogger.py`, (error) => {
 const keyloggerEnabled = true;
 if (keyloggerEnabled) {
-  const controller = exec(`cd ${path.join(app.getAppPath(), '..', 'src')} && pwd && sudo python3 keylogger.py >> log.log`);
+  controller = exec(`cd ${path.join(app.getAppPath(), '..', 'src')} && pwd && sudo python3 keylogger.py >> log.log`);
   if (controller.stdout !== null) controller.stdout.on('data', (msg) => console.log(msg));
   controller.on('close', () => console.log('python ended'));
 }
-let keyloggerPid = null;
+let keyloggerPid = 0;
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -35,7 +40,6 @@ async function createWindow() {
       preload: path.resolve(__static, 'preload.js'),
     },
   });
-
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
@@ -61,14 +65,14 @@ async function createWindow() {
       default:
         break;
     }
-  })
+  });
 
   setInterval(async () => {
     const concentrationString = await fs.readFileSync(path.join(app.getAppPath(), '..', 'keylogger', 'tmp.log'), 'utf-8');
     // console.log('data:', concentrationString);
     const pid = concentrationString.split(':')[0];
-    if (pid) keyloggerPid = pid;
-    win.webContents.send('keylogger', {'data': concentrationString, ts: Date.now()});
+    if (pid) keyloggerPid = parseInt(pid, 10);
+    win.webContents.send('keylogger', { data: concentrationString, ts: Date.now()});
   }, 1000);
 }
 
@@ -82,9 +86,12 @@ app.on('window-all-closed', () => {
     process.kill(keyloggerPid);
     console.log(controller.pid);
   }
+  app.quit();
+  /*
   if (process.platform !== 'darwin') {
     app.quit();
   }
+  */
 });
 
 app.on('before-quit', () => {

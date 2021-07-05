@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     testing: false,
     timerEn: false,
-    timer: 0,
+    timer: Date.now(),
     concentration: null,
     loggedIn: false,
     role: null,

@@ -19,6 +19,11 @@
           <b-icon class="menuIcon" icon="bar-chart-line-fill" />
         </router-link>
       </b-col>
+      <b-col cols="1" class="menuItem">
+        <router-link class="link" to="/calendar">
+          <b-icon class="menuIcon" icon="calendar" />
+        </router-link>
+      </b-col>
       <b-col v-if="false" cols="1" class="menuItem">
         <router-link class="link" to="/profile">
           <b-icon class="menuIcon" icon="person" />

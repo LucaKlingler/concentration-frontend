@@ -12,7 +12,7 @@ import App from './App.vue';
 import router from './router/router';
 import store from './store';
 
-Vue.use(VueMqtt, 'wss://mqtt.ava.hfg.design/mqtt', { clientId: `concentration-${parseInt(Math.random() * 100000, 10)}` });
+Vue.use(VueMqtt, 'wss://mqtt.ava.hfg.design/mqtt', { clientId: `concentration-${parseInt((Math.random() * 100000).toString(), 10)}` });
 
 Vue.use(ToastPlugin);
 

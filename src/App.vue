@@ -26,18 +26,20 @@ export default {
     };
   },
   mqtt: {
-    /*
-    lsd(msg) {
-      this.mqttMsg = JSON.parse(msg.toString());
+    concentration(msg) {
+      this.testPing();
+      console.log(msg.toString());
+      this.mqttMsg = msg.toString();
       // port 8000 für ws mqtt
     },
-    */
   },
   mounted() {
     // startet die Pings
     this.ping();
-    this.$mqtt.subscribe('lsd');
-    this.$mqtt.publish('/laborwoche/test', 'Hello World!');
+    this.$mqtt.subscribe('concentration');
+    setInterval(() => {
+      this.$mqtt.publish('concentration/hello', 'Hello World!');
+    }, 1000);
     this.$store.state.role = localStorage.getItem('role');
     window.ipc.on('keylogger', (payload) => {
       this.$store.state.concentration = payload.data * 1;

@@ -60,7 +60,8 @@
                               {{history.length}} Aufgaben
                               <br><br>
                               <img class="dbBlockIcon" src="@/assets/icons/concentration.svg">
-                              84%
+                              {{$store.state.concentration === -1 ? 'Kalibriert'
+                                : `${$store.state.concentration}%`}}
                             </div>
                           </div>
                         </b-col>
@@ -86,7 +87,8 @@
 
           <b-row :style="{ height: `${rowHeight}px` }">
             <b-col cols="3" class="dbButton">
-              <div class="dbButtonContainer d-flex justify-content-center">
+              <div class="dbButtonContainer d-flex justify-content-center"
+                @click="$router.push('/statistics')">
                 <div class="dbButtonContents align-self-center">
                   <img class="dbButtonIcon" src="@/assets/icons/statistics.svg" alt="" srcset="">
                   <br>
@@ -96,7 +98,8 @@
             </b-col>
 
             <b-col cols="3" class="dbButton">
-              <div class="dbButtonContainer d-flex justify-content-center">
+              <div class="dbButtonContainer d-flex justify-content-center"
+                @click="$router.push('/calendar')">
                 <div class="dbButtonContents align-self-center">
                   <img class="dbButtonIcon" src="@/assets/icons/calendar.svg" alt="" srcset="">
                   <br>
