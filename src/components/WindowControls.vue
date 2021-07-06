@@ -17,7 +17,7 @@ export default {
   name: 'WindowControls',
   methods: {
     handleWControls(mode) {
-      this.send('window', mode);
+      this.ipc.send('window', mode);
     },
   },
 };
