@@ -97,7 +97,7 @@ async function createWindow() {
     // window.open(`/captcha?ts=${Date.now()}`, 'test', params);
   });
   ipcMain.on('startkeylogger', (e, d) => {
-    controller = exec(`cd ${path.join(app.getAppPath(), '..', 'src')} && pwd && sudo python3 keylogger.py`);
+    controller = exec(`cd ${__static} && pwd && sudo python3 keylogger.py`);
     if (controller.stdout !== null) controller.stdout.on('data', (msg) => console.log(msg));
     controller.on('close', () => console.log('python ended'));
   });
@@ -108,7 +108,9 @@ async function createWindow() {
   });
 
   setInterval(async () => {
-    const concentrationString = await fs.readFileSync(path.join(app.getAppPath(), '..', 'keylogger', 'tmp.log'), 'utf-8');
+    // const concentrationString = await fs.readFileSync(path.join(app.getAppPath(),
+    // '..', 'keylogger', 'tmp.log'), 'utf-8');
+    const concentrationString = await fs.readFileSync(path.join(__static, 'keylogger.log'), 'utf-8');
     // console.log('data:', concentrationString);
     // const pid = concentrationString.split(':')[0];
     // if (pid) keyloggerPid = parseInt(pid, 10);
@@ -130,6 +132,8 @@ app.on('window-all-closed', () => {
   }
   */
 });
+
+console.log(app.getAppPath());
 
 app.on('before-quit', () => {
   // controller.kill();
