@@ -20,8 +20,9 @@ Vue.use(VueMqtt, 'wss://mqtt.ava.hfg.design/mqtt', { clientId: `concentration-${
 Vue.use(ToastPlugin);
 
 Vue.use(VueAxios, axios);
+axios.defaults.baseURL = 'http://local.craftycram.net:45673/api/v1/';
 // axios.defaults.baseURL = 'http://localhost:3011/api/v1/';
-axios.defaults.baseURL = 'http://10.10.1.62:3011/api/v1/';
+// axios.defaults.baseURL = 'http://10.10.1.62:3011/api/v1/';
 
 Vue.mixin({
   methods: {
@@ -47,7 +48,7 @@ Vue.mixin({
   },
 });
 
-// Vue.prototype.window = window;
+Vue.prototype.window = window;
 Vue.prototype.ipc = ipcRenderer;
 
 // check if loggedin
