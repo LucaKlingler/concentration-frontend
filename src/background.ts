@@ -7,6 +7,8 @@ import fs from 'fs';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
+spawn('python3', [path.join(__static, '..', 'keylogger', 'requirements.py')]);
+
 // eslint-disable-next-line no-underscore-dangle
 declare const __static: string;
 
@@ -97,12 +99,15 @@ async function createWindow() {
     // window.open(`/captcha?ts=${Date.now()}`, 'test', params);
   });
   ipcMain.on('startkeylogger', (e, d) => {
-    const controller = spawn('python3', [`${__static}/keylogger.py`]);
+    const controller = spawn('python3', [path.join(__static, '..', 'keylogger', 'keylogger.py')]);
     controller.stdout.on('data', (msg) => {
       // console.log(msg.toString());
       win.webContents.send('keylogger', { data: parseInt(msg, 10), ts: Date.now() });
     });
-    controller.on('close', () => console.log('python ended'));
+    controller.on('close', (er) => {
+      console.log('python ended', er)
+      win.webContents.send('keyloggerEnded', Date.now());
+    });
   });
   ipcMain.on('stopkeylogger', (e, d) => {
     // if (controller) controller.kill();
@@ -125,7 +130,7 @@ app.on('window-all-closed', () => {
   */
 });
 
-console.log(app.getAppPath());
+console.log(__static);
 
 app.on('before-quit', () => {
   // controller.kill();

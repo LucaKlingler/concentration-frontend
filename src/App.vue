@@ -41,6 +41,12 @@ export default {
       this.$store.state.concentration = payload.data * 1;
       console.log(payload);
     });
+    this.ipc.on('keyloggerEnded', (s) => {
+      console.log('keylogger stopped');
+      this.$store.state.testing = false;
+      this.$store.state.timerEn = false;
+      this.toast('Keylogger', 'Keylogger ist gestoppt', 'danger');
+    });
     // startet Tsimer
     if (this.$store.state.timerEn) {
       if (this.$store.state.concentration === 0
