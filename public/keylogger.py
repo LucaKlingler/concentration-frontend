@@ -6,12 +6,8 @@ import datetime
 DEFAULT_AVERAGE = 2
 AVERAGE_MESSUREMENT_SECONDS = 30
 AVERAGE_CONCENTRATION_SECONDS = 30
-CONCENTRATION_FILE = 'tmp.log'
-FOLDER_NAME = "keylogger"
 REMOVAL_KEYS = ['backspace', 'delete']
-FILEPATH = "{}/../{}/{}".format(os.getcwd(), FOLDER_NAME, CONCENTRATION_FILE)
 AFK_COUNTER = 0
-#FILEPATH = "/Users/lucaklingler/Documents/GitHub/captcha/keylogger/tmp.log"
 
 def getKey(event):
     global list_of_keys 
@@ -42,12 +38,6 @@ def calcPercentage(main, sub):
 
 def writeConcentration(concentration):
     print(concentration)
-    # Append-adds at last
-    #file = open(FILEPATH, "a")  # append mode
-    file = open(FILEPATH, "w")  # write mode
-    file.write("{:3.1f}\n".format(concentration))
-    #file.write("{}\n".format(FILEPATH))
-    file.close()
 
 def measureAverage():
     global list_of_keys
@@ -86,11 +76,8 @@ def measureConcentration(apending_key_average, removing_key_average):
     
 
 if __name__ == '__main__':
-    print("Test222")
     writeConcentration(-1)
-    if not os.path.exists(FOLDER_NAME):
-        os.makedirs(FOLDER_NAME)
     apending_key_average, removing_key_average = measureAverage()
-    print(apending_key_average, removing_key_average)
+    #print(apending_key_average, removing_key_average)
     while(True):
         measureConcentration(apending_key_average, removing_key_average)
