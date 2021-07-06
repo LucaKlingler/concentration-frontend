@@ -1,7 +1,7 @@
 import { app, protocol, BrowserWindow, ipcMain } from 'electron';
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib';
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer';
-import { ChildProcess, exec } from 'child_process';
+import { ChildProcess, spawn, exec } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 
@@ -10,7 +10,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 // eslint-disable-next-line no-underscore-dangle
 declare const __static: string;
 
-let controller: ChildProcess;
+// let controller: ChildProcess;
 
 // const controller = exec(`python3 ${__dirname}/assets/keylogger.py`, (error) => {
 /*
@@ -97,26 +97,18 @@ async function createWindow() {
     // window.open(`/captcha?ts=${Date.now()}`, 'test', params);
   });
   ipcMain.on('startkeylogger', (e, d) => {
-    controller = exec(`cd ${__static} && pwd && sudo python3 keylogger.py`);
-    if (controller.stdout !== null) controller.stdout.on('data', (msg) => console.log(msg));
+    const controller = spawn('python3', [`${__static}/keylogger.py`]);
+    controller.stdout.on('data', (msg) => {
+      // console.log(msg.toString());
+      win.webContents.send('keylogger', { data: parseInt(msg, 10), ts: Date.now() });
+    });
     controller.on('close', () => console.log('python ended'));
   });
   ipcMain.on('stopkeylogger', (e, d) => {
-    controller.kill();
+    // if (controller) controller.kill();
     exec('sudo pkill -f keylogger.py');
     // console.log(controller);
   });
-
-  setInterval(async () => {
-    // const concentrationString = await fs.readFileSync(path.join(app.getAppPath(),
-    // '..', 'keylogger', 'tmp.log'), 'utf-8');
-    const concentrationString = await fs.readFileSync(path.join(__static, 'keylogger.log'), 'utf-8');
-    // console.log('data:', concentrationString);
-    // const pid = concentrationString.split(':')[0];
-    // if (pid) keyloggerPid = parseInt(pid, 10);
-    win.webContents.send('keylogger', { data: concentrationString, ts: Date.now() });
-    // win.webContents.send('keylogger', 'lalalal');
-  }, 1000);
 }
 
 // Quit when all windows are closed.
@@ -124,7 +116,7 @@ app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   // controller.kill();
-  controller.kill();
+  // controller.kill();
   app.quit();
   /*
   if (process.platform !== 'darwin') {
@@ -137,7 +129,7 @@ console.log(app.getAppPath());
 
 app.on('before-quit', () => {
   // controller.kill();
-  controller.kill();
+  // controller.kill();
 });
 
 app.on('activate', () => {

@@ -37,7 +37,7 @@ def calcPercentage(main, sub):
         return 0
 
 def writeConcentration(concentration):
-    print(concentration)
+    print(concentration, flush=True)
 
 def measureAverage():
     global list_of_keys
