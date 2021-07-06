@@ -46,12 +46,12 @@ async function createWindow() {
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
-    await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL as string);
+    await win.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL as string}#/`);
     // if (!process.env.IS_TEST) win.webContents.openDevTools();
   } else {
     createProtocol('app');
     // Load the index.html when not in development
-    win.loadURL('app://./index.html');
+    win.loadURL('app://./index.html#/');
   }
 
   ipcMain.on('window', (e, d) => {
@@ -85,12 +85,12 @@ async function createWindow() {
     });
     if (process.env.WEBPACK_DEV_SERVER_URL) {
       // Load the url of the dev server if in development mode
-      winCaptcha.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL as string}#captcha?ts=${Date.now()}`);
+      winCaptcha.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL as string}#/captcha?ts=${Date.now()}`);
       // if (!process.env.IS_TEST) win.webContents.openDevTools();
     } else {
       createProtocol('app');
       // Load the index.html when not in development
-      winCaptcha.loadURL(`app://./index.html#captcha?ts=${Date.now()}`);
+      winCaptcha.loadURL(`app://./index.html#/captcha?ts=${Date.now()}`);
     }
     // const params = 'scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
     // width=600,height=910,left=0,top=0';
@@ -103,6 +103,7 @@ async function createWindow() {
   });
   ipcMain.on('stopkeylogger', (e, d) => {
     controller.kill();
+    exec('sudo pkill -f keylogger.py');
     // console.log(controller);
   });
 
