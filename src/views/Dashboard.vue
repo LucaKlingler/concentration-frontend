@@ -203,12 +203,12 @@ export default {
       this.$store.state.timerEn = true;
       this.$store.state.timer = Date.now();
       this.getHistory();
-      window.ipc.send('startkeylogger', Date.now());
+      this.ipc.send('startkeylogger', Date.now());
     },
     stopTest() {
       this.$store.state.testing = false;
       this.$store.state.timerEn = false;
-      window.ipc.send('stopkeylogger', Date.now());
+      this.ipc.send('stopkeylogger', Date.now());
     },
     // greift die letzten Testergebnisse aus dem Backend ab und zeigt sie an
     getHistory() {
@@ -217,7 +217,7 @@ export default {
           authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       }).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.history = [];
         res.data.forEach((e) => {
           const startD = new Date(parseInt(e.start, 10));

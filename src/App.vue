@@ -28,7 +28,6 @@ export default {
   mqtt: {
     'concentration/ping': function (msg) {
       this.testPing();
-      console.log(msg.toString());
       this.mqttMsg = msg.toString();
       // port 8000 für ws mqtt
     },
@@ -38,7 +37,7 @@ export default {
     this.ping();
     this.$mqtt.subscribe('concentration/+');
     this.$store.state.role = localStorage.getItem('role');
-    window.ipc.on('keylogger', (payload) => {
+    this.ipc.on('keylogger', (s, payload) => {
       this.$store.state.concentration = payload.data * 1;
       console.log(payload);
     });

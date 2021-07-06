@@ -38,9 +38,9 @@ async function createWindow() {
     transparent: false,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: true,
+      contextIsolation: false,
       enableRemoteModule: false,
-      preload: path.resolve(__static, 'preload.js'),
+      // preload: path.resolve(__static, 'preload.js'),
     },
   });
 
@@ -69,6 +69,33 @@ async function createWindow() {
         break;
     }
   });
+  ipcMain.on('openWindow', (e, d) => {
+    console.log('window');
+    const winCaptcha = new BrowserWindow({
+      width: 600, //  width: 750,
+      height: 910, // height: 910,
+      frame: false,
+      transparent: false,
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: false,
+        enableRemoteModule: false,
+        preload: path.resolve(__static, 'preload.js'),
+      },
+    });
+    if (process.env.WEBPACK_DEV_SERVER_URL) {
+      // Load the url of the dev server if in development mode
+      winCaptcha.loadURL(`${process.env.WEBPACK_DEV_SERVER_URL as string}#captcha?ts=${Date.now()}`);
+      // if (!process.env.IS_TEST) win.webContents.openDevTools();
+    } else {
+      createProtocol('app');
+      // Load the index.html when not in development
+      winCaptcha.loadURL(`app://./index.html#captcha?ts=${Date.now()}`);
+    }
+    // const params = 'scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
+    // width=600,height=910,left=0,top=0';
+    // window.open(`/captcha?ts=${Date.now()}`, 'test', params);
+  });
   ipcMain.on('startkeylogger', (e, d) => {
     controller = exec(`cd ${path.join(app.getAppPath(), '..', 'src')} && pwd && sudo python3 keylogger.py`);
     if (controller.stdout !== null) controller.stdout.on('data', (msg) => console.log(msg));
@@ -85,6 +112,7 @@ async function createWindow() {
     // const pid = concentrationString.split(':')[0];
     // if (pid) keyloggerPid = parseInt(pid, 10);
     win.webContents.send('keylogger', { data: concentrationString, ts: Date.now() });
+    // win.webContents.send('keylogger', 'lalalal');
   }, 1000);
 }
 

@@ -8,11 +8,12 @@ import axios from 'axios';
 import { ToastPlugin } from 'bootstrap-vue';
 import VueAxios from 'vue-axios';
 // import { ipcRenderer } from 'electron';
-import fs from 'fs';
 import VueMqtt from 'vue-mqtt';
 import App from './App.vue';
 import router from './router/router';
 import store from './store';
+
+const { ipcRenderer } = window.require('electron');
 
 Vue.use(VueMqtt, 'wss://mqtt.ava.hfg.design/mqtt', { clientId: `concentration-${parseInt((Math.random() * 100000).toString(), 10)}` });
 
@@ -21,8 +22,6 @@ Vue.use(ToastPlugin);
 Vue.use(VueAxios, axios);
 // axios.defaults.baseURL = 'http://localhost:3011/api/v1/';
 axios.defaults.baseURL = 'http://10.10.1.62:3011/api/v1/';
-
-fs.readFileSync('/');
 
 Vue.mixin({
   methods: {
@@ -43,14 +42,13 @@ Vue.mixin({
       });
       myNotification.addEventListener('click', () => {
         ipcRenderer.send('openWindow');
-        const params = 'scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=600,height=910,left=0,top=0';
-        window.open(`/captcha?ts=${Date.now()}`, 'test', params);
       });
     },
   },
 });
 
-Vue.prototype.window = window;
+// Vue.prototype.window = window;
+Vue.prototype.ipc = ipcRenderer;
 
 // check if loggedin
 router.beforeEach(function cb(this: any, to, from, next) {

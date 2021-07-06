@@ -1,6 +1,6 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
-const validChannels = ['keylogger', 'window', 'startkeylogger', 'stopkeylogger'];
+const validChannels = ['keylogger', 'window', 'openWindow', 'startkeylogger', 'stopkeylogger'];
 contextBridge.exposeInMainWorld(
   'ipc', {
     send: (channel, data) => {
