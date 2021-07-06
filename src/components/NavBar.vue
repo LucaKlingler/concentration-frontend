@@ -30,18 +30,24 @@
         </router-link>
       </b-col>
       <b-col></b-col>
-       <b-col cols="1" id="testping" class="menuItem"  v-if="$store.state.role === 'teacher'">
+      <b-col cols="1" id="studentping" class="menuItem"  v-if="$store.state.role === 'teacher'">
+        <span @click="$mqtt.publish('concentration/ping', Date.now().toString())" class="link">
+          <b-icon class="menuIcon" icon="chat-right-text" />
+        </span>
+      </b-col>
+      <b-tooltip target="studentping" triggers="hover">Ping an Schüler senden</b-tooltip>
+      <b-col cols="1" id="testping" class="menuItem"  v-if="$store.state.role === 'teacher'">
         <span @click="testPing" class="link">
           <b-icon class="menuIcon" icon="chat-right-text" />
         </span>
       </b-col>
       <b-tooltip target="testping" triggers="hover">Test-Ping</b-tooltip>
-       <b-col cols="1" class="menuItem">
+      <b-col cols="1" class="menuItem">
         <router-link class="link" to="/settings">
           <b-icon class="menuIcon" icon="gear" />
         </router-link>
       </b-col>
-     <b-col cols="1" class="menuItem">
+      <b-col cols="1" class="menuItem">
         <span class="link" to="#" @click="logout" >
           <b-icon class="menuIcon" icon="box-arrow-left" />
         </span>

@@ -13,13 +13,16 @@ declare const __static: string;
 let controller: ChildProcess;
 
 // const controller = exec(`python3 ${__dirname}/assets/keylogger.py`, (error) => {
+/*
 const keyloggerEnabled = true;
 if (keyloggerEnabled) {
-  controller = exec(`cd ${path.join(app.getAppPath(), '..', 'src')} && pwd && sudo python3 keylogger.py >> log.log`);
+  controller = exec(`cd ${path.join(app.getAppPath(), '..', 'src')}
+    && pwd && sudo python3 keylogger.py >> log.log`);
   if (controller.stdout !== null) controller.stdout.on('data', (msg) => console.log(msg));
   controller.on('close', () => console.log('python ended'));
 }
-let keyloggerPid = 0;
+*/
+// let keyloggerPid = 0;
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -34,7 +37,7 @@ async function createWindow() {
     frame: false,
     transparent: false,
     webPreferences: {
-      nodeIntegration: false,
+      nodeIntegration: true,
       contextIsolation: true,
       enableRemoteModule: false,
       preload: path.resolve(__static, 'preload.js'),
@@ -66,13 +69,22 @@ async function createWindow() {
         break;
     }
   });
+  ipcMain.on('startkeylogger', (e, d) => {
+    controller = exec(`cd ${path.join(app.getAppPath(), '..', 'src')} && pwd && sudo python3 keylogger.py`);
+    if (controller.stdout !== null) controller.stdout.on('data', (msg) => console.log(msg));
+    controller.on('close', () => console.log('python ended'));
+  });
+  ipcMain.on('stopkeylogger', (e, d) => {
+    controller.kill();
+    // console.log(controller);
+  });
 
   setInterval(async () => {
     const concentrationString = await fs.readFileSync(path.join(app.getAppPath(), '..', 'keylogger', 'tmp.log'), 'utf-8');
     // console.log('data:', concentrationString);
-    const pid = concentrationString.split(':')[0];
-    if (pid) keyloggerPid = parseInt(pid, 10);
-    win.webContents.send('keylogger', { data: concentrationString, ts: Date.now()});
+    // const pid = concentrationString.split(':')[0];
+    // if (pid) keyloggerPid = parseInt(pid, 10);
+    win.webContents.send('keylogger', { data: concentrationString, ts: Date.now() });
   }, 1000);
 }
 
@@ -81,11 +93,7 @@ app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   // controller.kill();
-  if (keyloggerEnabled) {
-    process.kill(controller.pid);
-    process.kill(keyloggerPid);
-    console.log(controller.pid);
-  }
+  controller.kill();
   app.quit();
   /*
   if (process.platform !== 'darwin') {
@@ -96,11 +104,7 @@ app.on('window-all-closed', () => {
 
 app.on('before-quit', () => {
   // controller.kill();
-  if (keyloggerEnabled) {
-    console.log(controller.pid);
-    process.kill(controller.pid);
-    process.kill(keyloggerPid);
-  }
+  controller.kill();
 });
 
 app.on('activate', () => {

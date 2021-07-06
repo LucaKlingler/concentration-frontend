@@ -26,7 +26,7 @@ export default {
     };
   },
   mqtt: {
-    concentration(msg) {
+    'concentration/ping': function (msg) {
       this.testPing();
       console.log(msg.toString());
       this.mqttMsg = msg.toString();
@@ -36,10 +36,7 @@ export default {
   mounted() {
     // startet die Pings
     this.ping();
-    this.$mqtt.subscribe('concentration');
-    setInterval(() => {
-      this.$mqtt.publish('concentration/hello', 'Hello World!');
-    }, 1000);
+    this.$mqtt.subscribe('concentration/+');
     this.$store.state.role = localStorage.getItem('role');
     window.ipc.on('keylogger', (payload) => {
       this.$store.state.concentration = payload.data * 1;

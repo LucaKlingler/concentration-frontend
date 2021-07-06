@@ -203,10 +203,12 @@ export default {
       this.$store.state.timerEn = true;
       this.$store.state.timer = Date.now();
       this.getHistory();
+      window.ipc.send('startkeylogger', Date.now());
     },
     stopTest() {
       this.$store.state.testing = false;
       this.$store.state.timerEn = false;
+      window.ipc.send('stopkeylogger', Date.now());
     },
     // greift die letzten Testergebnisse aus dem Backend ab und zeigt sie an
     getHistory() {
