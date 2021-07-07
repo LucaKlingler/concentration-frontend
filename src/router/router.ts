@@ -43,6 +43,17 @@ const routes: Array<RouteConfig> = [
     },
   },
   {
+    path: '/join',
+    name: 'Join',
+    components: {
+      header: NavBar,
+      default: () => import(/* webpackChunkName: "about" */ '../views/Join.vue'),
+    },
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
     path: '/captcha',
     name: 'Captcha',
     component: () => import(/* webpackChunkName: "about" */ '../views/Captcha.vue'),

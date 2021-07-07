@@ -9,6 +9,11 @@
           <b-icon class="menuIcon" icon="house" />
         </router-link>
       </b-col>
+      <b-col v-if="false" cols="1" class="menuItem">
+        <router-link class="link" to="/join">
+          <b-icon class="menuIcon" icon="plus" />
+        </router-link>
+      </b-col>
        <b-col v-if="false" cols="1" class="menuItem">
         <router-link class="link" to="/calendar">
           <b-icon class="menuIcon" icon="calendar"/>
@@ -32,7 +37,7 @@
       <b-col></b-col>
       <b-col cols="1" id="studentping" class="menuItem"  v-if="$store.state.role === 'teacher'">
         <span @click="$mqtt.publish('concentration/ping', Date.now().toString())" class="link">
-          <b-icon class="menuIcon" icon="chat-right-text" />
+          <b-icon class="menuIcon" icon="hand-index-thumb" />
         </span>
       </b-col>
       <b-tooltip target="studentping" triggers="hover">Ping an Schüler senden</b-tooltip>

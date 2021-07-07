@@ -18,7 +18,7 @@
               <div class="dbButtonContainer d-flex justify-content-center dbButtonContainerRed"
               @click="stopTest"               v-if="$store.state.testing === true">
                 <div class="dbButtonContents align-self-center">
-                  <img class="dbButtonIcon" src="@/assets/icons/start.svg" alt="" srcset="">
+                  <img class="dbButtonIcon" src="@/assets/icons/start-red.svg" alt="" srcset="">
                   <br>
                   Messung stoppen
                 </div>
@@ -26,7 +26,8 @@
             </b-col>
 
             <b-col class="dbButton" cols="3">
-              <div class="dbButtonContainer d-flex justify-content-center">
+              <div class="dbButtonContainer d-flex justify-content-center"
+                @click="$router.push('/join')">
                 <div class="dbButtonContents align-self-center">
                   <img class="dbButtonIcon" src="@/assets/icons/join-meeting.svg" alt="" srcset="">
                   <br>

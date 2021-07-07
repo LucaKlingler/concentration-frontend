@@ -1,4 +1,4 @@
-import { app, protocol, BrowserWindow, ipcMain } from 'electron';
+import { app, protocol, BrowserWindow, ipcMain, shell } from 'electron';
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib';
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer';
 import { ChildProcess, spawn, exec } from 'child_process';
@@ -101,7 +101,7 @@ async function createWindow() {
   ipcMain.on('startkeylogger', (e, d) => {
     const controller = spawn('python3', [path.join(__static, '..', 'keylogger', 'keylogger.py')]);
     controller.stdout.on('data', (msg) => {
-      // console.log(msg.toString());
+      console.log(msg.toString());
       win.webContents.send('keylogger', { data: parseInt(msg, 10), ts: Date.now() });
     });
     controller.on('close', (er) => {
@@ -113,6 +113,9 @@ async function createWindow() {
     // if (controller) controller.kill();
     exec('sudo pkill -f keylogger.py');
     // console.log(controller);
+  });
+  ipcMain.on('openMeeting', (e, d) => {
+    shell.openExternal('https://www.hfg.design/')
   });
 }
 
