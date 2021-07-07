@@ -38,7 +38,7 @@ export default {
           const date = new Date(parseInt(e.time, 10));
           if (now.toLocaleDateString() === date.toLocaleDateString()) {
             this.recordings.push(e);
-            this.recLabels.push(date.toLocaleDateString());
+            this.recLabels.push(date.toLocaleTimeString());
             this.recData.push(e.conz);
           }
         });
@@ -88,7 +88,7 @@ export default {
           xAxes: [{
             display: true,
             ticks: {
-              display: false,
+              display: true,
             },
             scaleLabel: {
               display: false,

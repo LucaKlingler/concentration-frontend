@@ -8,14 +8,11 @@ import axios from 'axios';
 import { ToastPlugin } from 'bootstrap-vue';
 import VueAxios from 'vue-axios';
 // import { ipcRenderer } from 'electron';
-import VueMqtt from 'vue-mqtt';
 import App from './App.vue';
 import router from './router/router';
 import store from './store';
 
 const { ipcRenderer } = window.require('electron');
-
-Vue.use(VueMqtt, 'wss://mqtt.ava.hfg.design/mqtt', { clientId: `concentration-${parseInt((Math.random() * 100000).toString(), 10)}` });
 
 Vue.use(ToastPlugin);
 

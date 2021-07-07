@@ -3,11 +3,10 @@ import { createProtocol } from 'vue-cli-plugin-electron-builder/lib';
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer';
 import { ChildProcess, spawn, exec } from 'child_process';
 import path from 'path';
+import mqtt from 'mqtt';
 import fs from 'fs';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
-
-spawn('python3', [path.join(__static, '..', 'keylogger', 'requirements.py')]);
 
 // eslint-disable-next-line no-underscore-dangle
 declare const __static: string;
@@ -55,6 +54,19 @@ async function createWindow() {
     // Load the index.html when not in development
     win.loadURL('app://./index.html#/');
   }
+
+  const requirementsStartTs = Date.now();
+  let requirementsStopTs = 0;
+  const requirements = spawn('python3', [path.join(__static, '..', 'keylogger', 'requirements.py')]);
+  requirements.on('close', () => {
+    requirementsStopTs = Date.now();
+    setTimeout(() => {
+      if ((requirementsStopTs - requirementsStartTs) > 1000) win.webContents.send('installedRequirements', Date.now());
+    }, 2000);
+  });
+  setTimeout(() => {
+    if (requirementsStopTs === 0) win.webContents.send('installingRequirements', Date.now());
+  }, 2000);
 
   ipcMain.on('window', (e, d) => {
     switch (d) {
@@ -115,12 +127,30 @@ async function createWindow() {
     // console.log(controller);
   });
   ipcMain.on('openMeeting', (e, d) => {
-    shell.openExternal('https://www.hfg.design/')
+    shell.openExternal('https://www.hfg.design/');
+  });
+
+  const client = mqtt.connect('mqtt://mqtt.ava.hfg.design');
+
+  client.on('connect', () => {
+    client.subscribe('concentration/+', (err) => {
+      if (!err) {
+        client.publish('presence', 'Hello mqtt');
+        ipcMain.on('mqtt', (e, d) => {
+          // console.log(d);
+          client.publish(d.topic, d.msg.toString());
+        });
+      }
+    });
+  });
+  client.on('message', (topic, message) => {
+    if (topic === 'concentration/ping') win.webContents.send('sendPing', Date.now());
   });
 }
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
+  exec('sudo pkill -f keylogger.py');
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   // controller.kill();
@@ -136,6 +166,7 @@ app.on('window-all-closed', () => {
 console.log(__static);
 
 app.on('before-quit', () => {
+  exec('sudo pkill -f keylogger.py');
   // controller.kill();
   // controller.kill();
 });

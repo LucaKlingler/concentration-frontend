@@ -1,18 +1,14 @@
 <template>
-  <b-container fluid class="text">
-    <b-row>
-      <b-col>
-        <!-- einbinden des Kalenders -->
-        <vue-cal
-          style="height: 500px"
-          :time-from="8 * 60"
-          :time-to="22 * 60"
-          active-view="week"
-          :disable-views="['years', 'year']">
-        </vue-cal>
-      </b-col>
-    </b-row>
-  </b-container>
+  <div class="text d-flex" style="background:;">
+    <!-- einbinden des Kalenders -->
+    <vue-cal
+      style="height: 90vh; padding: 2rem;"
+      :time-from="8 * 60"
+      :time-to="22 * 60"
+      active-view="week"
+      :disable-views="['years', 'year']">
+    </vue-cal>
+  </div>
 </template>
 
 <script>

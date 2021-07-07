@@ -9,6 +9,7 @@ export default new Vuex.Store({
     timerEn: false,
     timer: Date.now(),
     concentration: 0,
+    lastPingTs: 0,
     loggedIn: false,
     role: null,
   },

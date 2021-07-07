@@ -20,44 +20,45 @@ export default {
   },
   data() {
     return {
-      mqttMsg: undefined,
-      concentration: null,
-      lastPingTs: null,
     };
-  },
-  mqtt: {
-    'concentration/ping': function (msg) {
-      this.testPing();
-      this.mqttMsg = msg.toString();
-      // port 8000 für ws mqtt
-    },
   },
   mounted() {
     // startet die Pings
     this.ping();
-    this.$mqtt.subscribe('concentration/+');
     this.$store.state.role = localStorage.getItem('role');
     this.ipc.on('keylogger', (s, payload) => {
-      this.$store.state.concentration = payload.data * 1;
+      this.$store.state.concentration = parseInt(payload.data, 10);
       console.log(payload);
     });
     this.ipc.on('keyloggerEnded', (s) => {
       console.log('keylogger stopped');
       this.$store.state.testing = false;
       this.$store.state.timerEn = false;
-      this.toast('Keylogger', 'Keylogger ist gestoppt', 'danger');
+      this.toast('Keylogger', 'Keylogger ist gestoppt', 'info');
+    });
+    this.ipc.on('sendPing', (s) => {
+      this.testPing();
+    });
+    this.ipc.on('installingRequirements', (s) => {
+      this.toast('Keylogger', 'Benötigte Bibliotheken werden installiert', 'info');
+    });
+    this.ipc.on('installedRequirements', (s) => {
+      this.toast('Keylogger', 'Benötigte Bibliotheken wurden installiert', 'success');
     });
     // startet Tsimer
-    if (this.$store.state.timerEn) {
-      if (this.$store.state.concentration === 0
-        && (Date.now() - this.lastPingTs) > 1000 * 60 * 3) {
-        this.lastPingTs = Date.now();
-        console.log('ping');
-        this.testPing();
+    setInterval(() => {
+      if (this.$store.state.timerEn) {
+        const concentrationLimit = 30;
+        if (this.$store.state.concentration <= concentrationLimit
+          && (Date.now() - this.$store.state.lastPingTs) > 1000 * 60 * 3) {
+          this.$store.state.lastPingTs = Date.now();
+          console.log('ping');
+          this.testPing();
+        }
+        if (this.$store.state.concentration > concentrationLimit) this.$store.state.lastPingTs = 0;
+        // console.log('data:', concentrationString);
       }
-      if (this.$store.state.concentration === 1) this.lastPingTs = 0;
-      // console.log('data:', concentrationString);
-    }
+    }, 1000);
   },
   methods: {
     ping() {

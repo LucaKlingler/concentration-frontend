@@ -36,7 +36,8 @@
       </b-col>
       <b-col></b-col>
       <b-col cols="1" id="studentping" class="menuItem"  v-if="$store.state.role === 'teacher'">
-        <span @click="$mqtt.publish('concentration/ping', Date.now().toString())" class="link">
+        <span @click="ipc.send('mqtt',
+        { topic: 'concentration/ping', msg: Date.now() })" class="link">
           <b-icon class="menuIcon" icon="hand-index-thumb" />
         </span>
       </b-col>

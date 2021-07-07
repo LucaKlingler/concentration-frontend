@@ -200,6 +200,7 @@ export default {
   },
   methods: {
     startTest() {
+      this.$store.state.lastPingTs = Date.now();
       this.$store.state.testing = true;
       this.$store.state.timerEn = true;
       this.$store.state.timer = Date.now();
